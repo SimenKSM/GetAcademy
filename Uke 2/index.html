@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="order()">Bestill</button>
+    <button onclick="simulateError()">Utløs feil</button>
+    <script>
+        function createDialog(headline, txt, btnText, color) {
+            const id = Math.floor(Math.random() * 1000000);
+            document.body.innerHTML += `
+                <div id="${id}" style="
+                            background-color: lightgray;
+                            color: ${color};
+                            border: 2px solid green;
+                            border-radius: 5px;
+                            font-family: Verdana, Geneva, Tahoma, sans-serif;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            width: 300px;
+                        ">
+                    <div style="
+                                background-color: ${color};
+                                color: white;
+                                width: 100%;
+                                text-align: center;
+                            ">
+                        <h3>${headline}</h3>
+                    </div>
+                    <p style="padding: 10px;">
+                        ${txt}
+                    </p>
+                    <p>
+                        <button 
+                            onclick="closeDialog(${id})"
+                            style="width: 300px">
+                            ${btnText}
+                        </button>
+                </div>
+                </div>
+            `;
+        }
+
+        function closeDialog(idToClose) {
+            document.getElementById(idToClose).outerHTML = '';
+        }
+
+        function order() {
+            createDialog(
+                'Bestillingen er registrert',
+                'Takk for handelen - vi håper du blir fornøyd med varene.',
+                'Ok',
+                'green'
+            );
+        }
+
+        function simulateError() {
+            createDialog(
+                'Feil',
+                'Fikk ikke kontakt med server - prøv igjen.',
+                'Ok',
+                'red'
+            );
+        }
+    </script>
+</body>
+
+</html>

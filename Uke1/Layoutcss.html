@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        .part {
+            background-color: lightgray;
+            margin: 10px;
+        }
+
+        .Layout1 {
+            display: flex;
+            align-items: start;
+        }
+        .Layout2 {
+            display: flex;
+            align-items: end;
+        }
+        .Layout3 {
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button onclick="Layout1()">Layout Flexbox Aligntitems Start</button>
+    <button onclick="Layout2()">Layout Flexbox Aligntitems Start</button>
+    <button onclick="Layout3()">Grid</button>
+    <div id="container">
+
+        <div class="part">
+            Lav og smal div
+        </div>
+        <div class="part">
+            Lav og bred div Lav og bred div Lav og bred div
+        </div>
+        <div class="part">
+            Høy<br />
+            Og<br />
+            smal<br />
+            div<br />
+        </div>
+        <div class="part">
+            Høy og bred div Høy og bred div Høy og bred div Høy og bred div Høy og bred div
+            Høy og bred div Høy og bred div Høy og bred div Høy og bred div Høy og bred div
+            Høy og bred div Høy og bred div Høy og bred div Høy og bred div Høy og bred div
+            Høy og bred div Høy og bred div Høy og bred div Høy og bred div Høy og bred div
+
+        </div>
+    </div>
+    <script>
+        function Layout1() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('Layout1');
+            
+        }
+        function Layout2() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('Layout2');
+           
+        }
+        function Layout3() {
+            document.getElementById('container').classList = [];
+            document.getElementById('container').classList.add('Layout3');
+           
+        }
+    </script>
+</body>
+
+
+</html>

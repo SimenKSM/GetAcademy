@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="testOnLoad()">
+    <p>Ferdighet 2a - Alternative eventhandlere: onchange osv.</p>
+    <input type="text" onchange="testalt('onchange')" oninput="testalt('oninput')" />
+    <h3 onmouseover="testalt('onmouseover')" onmouseout="testalt('onmouseout')">Test test test</h3>
+    <h2 id="info"></h2>
+
+    <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+    <script>
+      
+// Min funksjon
+
+        function testalt(load){ 
+            document.getElementById('info').innerHTML += `<li>${load}</li>`;
+        }
+    
+        
+    </script>
+</body>
+</html>

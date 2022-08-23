@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .card {
+            height: 50px;
+            width: 100px;
+            border-style: dashed;
+            text-align: center;
+            float: left;
+            margin: 10px;
+
+        }
+
+        .synligDiv {
+            height: 40;
+            width: 65;
+            border: 2px dotted;
+            
+        }
+    </style>
+    <br>
+    <div id="Bakgrunn"></div>
+    <div class="card" onclick="chooseColor(this.innerHTML)" style="background-color: Red"> Red</div>
+    <div class="card" onclick="chooseColor(this.innerHTML)" style="background-color: Blue"> Blue</div>
+    <div class="card" onclick="chooseColor(this.innerHTML)" style="background-color: Green"> Green</div>
+    <br>
+    <button onclick="setBackgroundColor()">Bytt Farge</button>
+    <br><br><br><br>
+    <div onclick="ValgtDiv(this)">Valg 1</div>
+    <div onclick="ValgtDiv(this)">Valg 2</div>
+
+
+
+    <script>
+        
+        var choosenColor = "";
+        var selectDiv =  document.getElementById('Bakgrunn');
+
+        function chooseColor(test) {
+            choosenColor = test
+            Bakgrunn.innerHTML = `Du har valgt fargekode: ${test}`;
+            Bakgrunn.style.backgroundColor = test;
+        }
+        function ValgtDiv(click){
+            selectDiv.classList.remove("synligDiv");
+            selectDiv = click;
+            selectDiv.classList.toggle("synligDiv");
+            click.style.backgroundColor = choosenColor;
+        }
+        
+
+        function setBackgroundColor() {
+            document.body.style.backgroundColor = choosenColor;
+
+        }
+    </script>
+</body>
+
+</html>

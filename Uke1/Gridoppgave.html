@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    div.page {
+
+        height: 100vh;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        grid-template-rows: 1fr 10fr 1fr;
+        grid-template-areas:
+            'header header'
+            'meny maincontent'
+            'footer footer';
+
+    }
+
+    div.header {
+        color: white;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(0, 119, 255);
+        grid-area: header;
+    }
+
+    div.meny {
+
+        background-color: rgb(255, 255, 255);
+        grid-area: meny;
+
+
+
+
+
+    }
+
+    div.maincontent {
+        background-color: rgb(253, 253, 253);
+        grid-area: maincontent;
+
+
+    }
+
+    div.footer {
+        display: flex;
+        justify-content: flex-end;
+        background-color: rgb(129, 126, 126);
+        grid-area: footer;
+
+    }
+
+    @media only screen and (max-width: 600px) {
+        div.page {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 20px 1fr 4fr;
+            grid-template-areas: 'header'
+                'maincontent'
+                'footer';
+        }
+    }
+</style>
+
+
+<body>
+    <div class="page">
+        <div class="header">
+            <h1>My Website</h1>
+        </div>
+        <div class="meny">
+            <h3>Navigation</h3>
+
+            <a href="gridoppgave.html">Home</a>
+            <br />
+            <a href="gridoppgave.html">About</a>
+            <br />
+            <a href="gridoppgave.html">Contact</a>
+
+
+        </div>
+        <div class="maincontent">
+            <h3>HomePage</h3>
+            <p>Lorem ipsum dolor sit amet.
+                Ea veniam voluptatum aut adipisci obcaecati aut quaerat quia et esse
+                autem. Et beatae rerum est saepe dolorum et voluptatem aperiam. Vel
+                corporis magni 33 voluptate omnis eum impedit facere sed omnis harum
+                et omnis recusandae sed deleniti.
+            </p>
+
+            <p>Est perferendis aliquam ea atque velit et ipsa consectetur. Eos
+                galisum facilis eos incidunt inventore eum praesentium totam et
+                fugiat atque hic eligendi obcaecati.
+            </p>
+
+
+
+            <p>Qui velit excepturi et Quis fuga hic eveniet rerum? Est
+                aspernatur nesciunt est fuga rerum quo vitae error aut
+                saepe laudantium rem sapiente itaque. Eum inventore
+                porro est nemo ratione rem officia enim eos obcaecati
+                maiores aut veniam blanditiis ex quod nihil ut itaque
+                quasi.
+            </p>
+
+        </div>
+        <div class="footer">
+            <h2>Copyright 2022 Simen er best</h2>
+        </div>
+
+
+</body>
+
+</html>

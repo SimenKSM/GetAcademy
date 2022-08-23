@@ -1,0 +1,74 @@
+body {
+    margin-left: 20px;
+}
+
+.card {
+    width: 500px;
+    background-color: lightgray;
+    border: 1px solid darkgrey;
+    margin: 10px;
+
+}
+
+ /* .innercard {   */
+   
+    /* padding: 1px;  */
+
+  /* }  */
+
+.header {
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    padding: 1% 0;
+    border: 1px solid gray;
+    user-select: none;
+
+}
+
+.green {
+    background-color: #3cba54;
+
+}
+
+.yellow {
+    background-color: #f4c20d;
+
+}
+
+.red {
+    background-color: #db3236;
+
+}
+
+.blue {
+    background-color: #4885ed;
+
+}
+
+.dark {
+    background-color: #36393f;
+
+}
+
+p {
+    padding-left: 10px;
+    
+}
+
+.vertikal {
+    display: grid;
+    grid-template-columns: auto;
+}
+.horisontalt {
+    display: flex;
+    align-items: start;
+}
+.grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    
+
+    
+}
+

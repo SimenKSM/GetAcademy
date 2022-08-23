@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="output">0</div>
+    <button onclick="setNumHigher()">Set Number Higher</button>
+    <button onclick="setNumLower()">Set Number Lower</button>
+
+
+    <script>
+
+        //  var number = 5; //int
+        // var floatnumber = 5.5; //kommaseparert tall
+        // var text = "en liten tekstbit"; // string
+        // var enkeltTegn = 'a'; //character
+        // var booleans = true; //booleans TrueORfalse
+
+        var outputDiv = document.getElementById('output');
+        var number = 0;
+
+
+        function setNumHigher() {
+           outputDiv.innerHTML = ++number; // Alternativ måte for og få finere formatering
+
+        }
+        function setNumLower() {
+            number -= 1;
+            outputDiv.innerHTML = number;
+        }
+
+     
+
+    </script>
+</body>
+
+</html>
