@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            font-size: 300%;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+        var cheatNumber = 0;
+        var cheatMessage = ''
+
+
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+        }
+        function cheatButton() {
+            points = 10 * points;
+            cheatNumber = 1
+            if (cheatNumber == 1) cheatMessage = 'Terje har Juksa!';
+            
+            
+            updateView();
+            }
+            // if (count == 1) return playerX;
+            // if (count == 0) return playerO;
+
+             updateView();
+
+        
+
+        // view
+        updateView();
+        function updateView() {
+            var smiley = smileyIndex == 0 ? '😀' : '😁';
+            // var cheatText = cheatNumber == 1 ? 'Du spiller rent' : 'Juksepave';
+            document.getElementById('app').innerHTML = `
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${points}</div>
+                 ${cheatMessage}</br>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick=cheatButton()>Jukseknapp</button>
+                
+
+                
+                
+            `;
+        }
+    </script>
+</body>
+
+</html>
