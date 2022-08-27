@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model
+        var points = 0;
+        var randNum1 = 0;
+        var randNum2 = 0;
+        var inputNum = "";
+
+
+
+
+
+
+        // View 
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+        
+        <h2>${points}</h2>
+        <img src="img/krokodille.jpg"</img>
+        </br></br></br>
+        ${randNum1}
+        <input type="test" oninput="inputNum =this.value"></input> 
+        ${randNum2}
+        </br></br></br>
+        <button onclick="onSubmit()">Submit</button>
+        <button onclick="onReset()">Reset</button>
+        
+        `;
+        }
+
+        // Controller
+        function onSubmit() {
+            // inputNum.indexOf(">");
+            // inputNum.indexOf("<");
+            // inputNum.indexOf("=");
+            // && (sjekker om 1 og 2) || (sjekker om 1 eller 2)
+            // if ((inputNum.indexOf('<') === (-1)) || (inputNum.indexOf('>') === (-1))) {
+            //     console.log('viser ikke tegnet')
+
+            //     //     // || (inputNum.indexOf("<") == -1) || (inputNum.indexOf("=") == -1)
+            // }
+            // else {console.log("Du har valgt tegn")
+
+            // }
+            // if ((inputNum === '<') || (inputNum === '>') || (inputNum === '=')) {
+            //     alert('Du har riktig');
+
+            // }
+            // else {
+            //     alert('Putt inn følgende tegn < > =');
+            // }
+            if ((randNum1 > randNum2 && inputNum =='>') || (randNum1 < randNum2 && inputNum =='<') || (randNum1 == randNum2 && inputNum =='=') ) {
+                points += 1;
+            }
+            else {
+                points -= 1;
+            }
+            updateView();
+            // else console.log(inputNum.indexOf(">"))
+
+            // if(inputNum.indexOf('>')!=-1)
+
+            // inputNum.indexOf(">, <, =");
+            // inputNum.indexOf(">, <, =");
+            // if(randNum1 = )
+
+
+
+        }
+
+
+        function onReset() {
+            randNum1 = Math.floor(Math.random() * 10) + 1
+            randNum2 = Math.floor(Math.random() * 10) + 1
+
+            updateView()
+        }
+
+        updateView()
+
+    </script>
+
+</body>
+
+</html>
