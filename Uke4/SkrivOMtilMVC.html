@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id='app'></div>
+
+
+    <script>
+        //Model
+        var resultatDiv;
+
+
+        //View
+
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+        <p>Ferdighet 10 - Funksjoner med parametre - synlig resultat </p>
+        <button onclick="showDiv(500, 500, 'Alternativ 1', 'lightblue')">Alternativ 1</button>
+        <button onclick="showDiv(800, 100, 'Alternativ 2', 'pink')">Alternativ 2</button>
+        <button onclick="showDiv(100, 600, 'Alternativ 3', 'lightgreen')">Alternativ 2</button>
+        <div class="resultatDiv"${resultatDiv}"></div>
+        
+        `;
+
+        }
+
+
+        //Controller
+
+
+        function showDiv(width, height, text, color) {
+            text = text + ' ' + text + ' ' + text + ' ' + text + ' ' + text;
+            text = text + ' ' + text + ' ' + text + ' ' + text + ' ' + text;
+            var backgroundColorStyle = 'background-color: ' + color + ';';
+            var widthStyle = 'width: ' + width + 'px;';
+            var heightStyle = 'height: ' + height + 'px;';
+            var style = 'style="' + backgroundColorStyle + widthStyle + heightStyle + '"';
+            resultatDiv = '<div ' + style + '>' + text + '</div>';
+            updateView()
+        }
+        updateView()
+    </script>
+</body>
+
+</html>

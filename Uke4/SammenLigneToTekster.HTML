@@ -1,0 +1,63 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    <div id='app'></div>
+
+    <script>
+        //model
+        let inputTxt1 = '';
+        let inputTxt2 = '';
+        let inputTxt3 = '';
+        let displayText = '';
+
+
+        // onchange for og få skrevet en verdi i inputboksen, valueinputtext for at skriften ikke forsvinner
+        // 
+        //view
+  
+        show()
+        function show() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            <h5> Fyll in tekst</h5>
+            <input type="text" onchange="inputTxt1=this.value" value='${inputTxt1}'><br/> 
+            <input type="text" onchange="inputTxt2=this.value" value='${inputTxt2}'><br/>
+            <input type="text" onchange="inputTxt3=this.value" value='${inputTxt3}'><br/>
+            <button onclick=check()>Sjekk</button>
+            <div>${displayText} </div>
+       
+        
+           
+        
+        `;
+
+        }
+        //controller
+
+        function check() {
+            if (inputTxt1 == inputTxt2 && inputTxt1 == inputTxt3) { //Sammenligner inputTxt 1,2 og 3
+                displayText = 'Tekstene er like'; // Viser denne teksten i div'en om det er korrekt
+            }
+            else {                                     // Husk at denne ikke trenger noen sammenligninger, den går av bare noe ikke er likt if setninge.
+                displayText = 'Tekstene er ikke like' // Viser denne teksten i div'en om det er feil
+            }
+
+            show() //Oppdater viewet for og få sjekke sammenligningene og få frem teksten
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
