@@ -7,28 +7,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .bakgrunn {
+            background-color: coral;
+        }
 
+        .black {
+            background-color: black;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+        .gray {
+            background-color: gray;
+        }
+        .green {
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+        .size {
+            height: 50px;
+            width: 50px;
+        }
+
+        .txtWhite {
+            color: white;
+        }
+
+        .txtBlack {
+            color: black;
+        }
     </style>
 </head>
 
 <body>
+
     <div id='app'></div>
     <script>
         // model
-
+        let color = 'bakgrunn'
+        let txtColor;
 
         // view
         show()
         function show() {
             document.getElementById('app').innerHTML = /*HTML*/ `
             
-            <select>
-                <option value="" selected disabled hidden>Velg Farge</option>
-                <option value="1">Svart Farge</option>
-                <option value="2">Mørkeblå Farge</option>
-                <option value="3">Lysegrå Farge</option>
-                <option value="4">Lysegrønn Farge</option>
-                <option value="5">Rød Farge</option>
+            <div class='${color} size ${txtColor}' >Text</div>
+            <select onchange="changeColor(this)">
+                <option  selected disabled hidden>Velg Farge</option>
+                <option value="black">Svart</option>
+                <option value="blue">Mørkeblå Farge</option>
+                <option value="gray">Lysegrå Farge</option>
+                <option value="green">Lysegrønn Farge</option>
+                <option value="red">Rød Farge</option>
                 </select>
                 
             
@@ -36,7 +70,44 @@
         }
 
         // controller
-       
+        function changeColor(element) {
+            if (element.value == "black") {
+                color = 'black';
+            }
+            else if(element.value == 'blue'){
+                color ='blue';
+            }
+            else if(element.value == 'gray'){
+                color = 'gray';
+            }
+            else if(element.value == 'green'){
+                color = 'green';
+            }
+            else if(element.value == 'red'){
+                color ='red';
+            }
+
+
+
+            show()
+            textColor(element)
+        }
+
+
+        function textColor(element) {
+            if (element.value == 'black' || element.value == 'blue') {
+                txtColor = 'txtWhite';
+                
+            }
+            else txtColor ='txtBlack';
+            
+            show()
+          
+        }
+
+
+
+
 
     </script>
 
