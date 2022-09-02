@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="textInput" type="text"></input>
+    <button onclick="printNumbers()">Print numbers</button>
+    <div id=numbers></div>
+    <script>
+        function printNumbers(){
+            //Hvordan en for() løkke skrives
+            //lage startvariabel og sette startverdi
+            //en betingelse for hvor lenge en løkke skal kjøre
+            //Hva skal skje med startvariabel
+            let stopValue=10;
+            let index;
+            for(let counter = 0; counter<=stopValue; counter++){
+            index = counter *2;
+            document.getElementById('numbers').innerHTML += '<li>' +index+ '</li>'
+        }
+        //     for(let counter= 0; counter<stopValue; counter+=2 ){
+        //         document.getElementById('numbers').innerHTML += '<li>' + counter + '</li>'
+        //     }
+        // 
+    }
+    </script>
+</body>
+</html>
