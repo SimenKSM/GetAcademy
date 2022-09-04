@@ -14,9 +14,9 @@
     <button onclick="printLetters('dette er en setningæøå')">Print</button>
 
     <script>
-        // Oppgave, Legg til et mellomrom mellom hvert tegn i teksstringen
-        // H E I P Å D E G
-        // 0 1 2 3 4 5 6 7
+       // Lag en funksjon som teller opp antall vokaler i en string ved hjelp av en for-løkke
+       // Vokaler: a, e, i, o, u, y, æ, ø, å
+       // Bruk en variabel for hver av vokalene feks let aCounter  = 0 som plusses oppover dersom du finner bokstaven i tekststringen
         function printLetters(inputString) {
             let vokalA = 'a';
             let vokalE = 'e';
@@ -30,9 +30,11 @@
             let text = '';
             let aCount= 0;
             for (let index = 0; index <= inputString.length; index++) {
-                if (inputString == vokalA || vokalE || vokalI || vokalO|| vokalU|| vokalY|| vokalÆ|| vokalØ|| vokalÅ) {
+                if (inputString === vokalA || inputString === vokalE || inputString === vokalI || inputString === vokalO || inputString === vokalU || inputString === vokalY || inputString === vokalÆ || inputString === vokalØ || inputString === vokalÅ) {
                     aCount += 1;
+                    
                 }
+                
 
             }
             document.getElementById('letters').innerHTML = inputString;
