@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Letters</div>
+    <div id="letters"></div>
+    <button onclick="printLetters('dette er en setningæøå')">Print</button>
+
+    <script>
+        // Oppgave, Legg til et mellomrom mellom hvert tegn i teksstringen
+        // H E I P Å D E G
+        // 0 1 2 3 4 5 6 7
+        function printLetters(inputString) {
+            let vokalA = 'a';
+            let vokalE = 'e';
+            let vokalI = 'i';
+            let vokalO = 'o';
+            let vokalU = 'u';
+            let vokalY = 'y';
+            let vokalÆ = 'æ';
+            let vokalØ = 'ø';
+            let vokalÅ = 'å';
+            let text = '';
+            let aCount= 0;
+            for (let index = 0; index <= inputString.lenght; index++) {
+                if (text == 'a', 'e', 'i', 'o', 'u', 'y', 'æ', 'ø', 'å') {
+                    aCount = +1;
+                }
+
+            }
+            document.getElementById('letters').innerHTML = inputString;
+        }
+    </script>
+
+</body>
+
+</html>
