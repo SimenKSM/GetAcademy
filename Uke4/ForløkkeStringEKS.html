@@ -12,6 +12,7 @@
     <div>Letters</div>
     <div id="letters"></div>
     <button onclick="printLetters('dette er en setningæøå')">Print</button>
+    <input onchange="reverseText(this.value)">
 
     <script>
        // Lag en funksjon som teller opp antall vokaler i en string ved hjelp av en for-løkke
@@ -30,14 +31,21 @@
             let text = '';
             let aCount= 0;
             for (let index = 0; index <= inputString.length; index++) {
-                if (inputString === vokalA || inputString === vokalE || inputString === vokalI || inputString === vokalO || inputString === vokalU || inputString === vokalY || inputString === vokalÆ || inputString === vokalØ || inputString === vokalÅ) {
+                if (inputString[index] === vokalA || inputString[index] === vokalE || inputString[index] === vokalI || inputString[index] === vokalO || inputString[index] === vokalU || inputString[index] === vokalY || inputString[index] === vokalÆ || inputString[index] === vokalØ || inputString[index] === vokalÅ) {
                     aCount += 1;
-                    
+                    console.log(aCount)
                 }
-                
 
             }
             document.getElementById('letters').innerHTML = inputString;
+        }
+        function reverseText(texten){
+            console.log(texten);
+            // let halla;
+            for(let index = texten.length; index >= 0; index--){
+               console.log(texten[index]);
+            }
+
         }
     </script>
 
