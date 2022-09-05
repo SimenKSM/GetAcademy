@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+
+    <div id="numbers"></div>
+    <button onclick="ranNumbers()">Generer tall</button>
+    <script>
+        // Lag en funksjon som generer 2 random tall så lenge tallene er ulike fra hverandre. Når de er like print ut teksten "Equal numbers found" - samt hvilke tall det ble =)
+        // kan eventuelt også console.log() tallene for hver runde
+        // OBS: Nettleseren er ikke glad i å oppdatere view mens i en while-loop!
+
+        // function ranNumbers() {
+        //     let numberOne = Math.floor(Math.random() * 11);
+        //     let numberTwo = Math.floor(Math.random() * 11);
+        //     let text;
+        //     if (numberOne == numberTwo) {
+        //         text = 'Du har to like tall'
+        //     }
+        //     console.log(numberOne)
+        //     console.log(numberTwo)
+        // }
+
+        function ranNumbers() {
+            let numberOne = Math.floor(Math.random() * 11);
+            let numberTwo = Math.floor(Math.random() * 11);
+           
+            while (numberOne != numberTwo) {
+                    numberTwo = Math.floor(Math.random() * 11)
+
+
+            }
+            let text = `Equal Numbers ${numberOne} - ${numberTwo}`;
+            console.log(numberOne)
+            console.log(numberTwo)
+            console.log(text)
+            document.getElementById('numbers').innerHTML += text;
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
