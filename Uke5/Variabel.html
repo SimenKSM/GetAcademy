@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+
+        //model
+        var counter = 0;
+        var number;
+        var timer;
+        
+
+
+        //view
+        show()
+        function show(){
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            <h3>${counter}</h3>
+            <button onclick="numUp()">+ Tall</button>
+            <button onclick="numDown()">- Tall</button>
+            <br/>
+            <br/>
+            <br/>
+            <h3>${timer}</h3>
+            <button>Stoppeklokke</button>
+            
+            `; 
+        }
+       
+        //controller
+        function numUp(){
+           counter++;
+            show()
+        }
+
+        function numDown(){
+            counter--;
+            show()
+
+        }
+        function stopwatch(){
+
+        }
+
+
+
+
+        // Oppgave
+        // Lag en visuell teller! Vis frem et tall
+        // - lag to knapper der en kan øke tallet hver gang du trykker på den, 
+        // mens den andre gjør tallet mindre
+        // Bruk minst en variabel for å løse oppgaven ;)
+
+        //  Bonus Oppgave
+        //  Lag en stoppeklokke. 
+        //  Begynn med å lage én knapp som setter i gang tiden - 
+        //  tiden lagres i en variabel, og vises fram i nettleseren.
+        //  Lag så en knapp for å ta "rundetider" - altså at du lagrer 
+        //  og viser tiden i dét du trykker på pauseknappen, samtidig som tidtakeren 
+        //  stiller seg tilbake på 0 og begynner på nytt.
+        //  Extra BONUS!
+        //  Lag en knapp for å blanke ut og stoppe klokka og timeren.
+        //  Ting som kan være lurt å sjekke ut: 
+        //  setInterval() - til timingen av å kjøre andre funksjoner.
+        //  clearInterval() - til å pause
+        //  Husk at dette er en oppgave hvor du skal trene på å bruke variabler!
+        //  Det som trengs på bonusoppgaven må du finne ut av selv
+
+
+    </script>
+</body>
+</html>

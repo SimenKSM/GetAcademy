@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+
+<script>
+    
+    //model
+    let number = 0;
+
+    //view
+    show();
+    function show(){
+        document.getElementById('app').innerHTML = /*HTML*/ `
+        <div>${number}</div>
+        <button onclick="counter('up')">+ Tall</button>
+        <button onclick="counter('down')">- Tall</button>
+        ${createDiv(30, 70, 'red', 'Simen', 20)}
+        ${createDiv(70, 30, 'hotpink', 'Therese', 50)}
+
+     `;
+
+    }
+
+    //controller
+    function createDiv(bredde, høyde, farge, txt, font){
+        return `<div style="${createWidth(bredde)} height: ${høyde}px; background-color: ${farge}; ${fontSize(font)}  "> ${txt}  </div>`
+    }
+    function createWidth(bredde){
+        return `width: ${bredde}px;`;
+    }
+    function fontSize(font){
+        return `font-size:${font}px;`
+    }
+
+    function counter(upOrDown){
+        console.log(upOrDown)
+        if(upOrDown == 'up'){
+            number++
+        }
+        else{
+            number --
+        }
+        show()
+    }
+    // function numUp(){
+    //     counter++;
+    // show()
+    // }
+    // function numDown(){
+    //     counter--;
+    //     show()
+    // }
+
+    
+
+</script>
+
+</body>
+</html>
