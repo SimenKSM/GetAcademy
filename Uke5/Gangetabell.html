@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="range" min="1" max="100" value="5"/>
+    <input type="range" min="1" max="100" value="5" oninput="userInput(this.value)" />
     <div id="multiplicationMatrix"></div>
     <script>
         // hjelpevariabler for view og controller
@@ -35,6 +35,25 @@
             multiplicationMatrixDiv.style.display = 'grid';
             multiplicationMatrixDiv.style.gridTemplateColumns = `repeat(${columnCount},40px)`;
         }
+
+        //Controller
+        
+        function userInput(value){
+           
+
+        }
+
+        // På siden er det en slider som velger et tall mellom 1 og 100 - 
+        // og med det hvilken gangetabell som ønskes. (Velger man for eksempel 10, 
+        // betyr det at brukeren ønsker gangetabellen opp til 10⋅10.) Lag en 
+        // controller-funksjon som kalles hver gang brukeren endrer slideren. 
+        // Funksjonen skal regne ut alle tallene i multiplicationMatrix på nytt ut 
+        // fra hvor stor gangetabell som ønskes, og også sette columnCount - og så  
+        // kalle show() på nytt.
+
+        // Hint: Hvert tall i gangetabellen er et tall ganget med et annet, altså tall1⋅tall2. 
+        // For å få til dette trenger du to for-løkker inne i hverandre, hvor den ene teller 
+        // fra 1 til valgt størrelse for tall1 og den andre gjør det samme for tall2.
     </script>
 </body>
 </html>
