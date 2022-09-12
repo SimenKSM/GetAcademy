@@ -24,12 +24,12 @@
         <h3> Fyll inn alder for og kjøpe billett</h3>
         <input onchange="ticket(this.value)" type="text"> 
         <H4>Antall Barnebilletter solgt:${childTic || ''}</h4>
-        <H4>Antall Voksenbiletter solgt:${adultTic || ''} </h4>
+        <H4>Antall Voksenbiletter solgt:${adultTic || ''}</h4>
         
         `;
     }
     //controller
-    // Sjekker om alderen som ble skrevet inn i input er mindre enn 16 og returnerer korrekt billet solgt.
+    // Sjekker alderen og endrer variabelene som trengs
     function ticket(element){
          if (element > 16 ){
             adultTic++;
