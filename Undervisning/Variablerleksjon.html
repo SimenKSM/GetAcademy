@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app"></div>
 
     <script>
         //model
-        var bakgrunn;
-        var backgcolor;
+        let bakgrunn;
+
+
+
         //view
         show()
-        function show(){
-            document.getElementById("app").innerHTML = /*HTML*/ `
-            
-            ${createDiv(50,50,'red','Rød')}
-            ${createDiv(50,50,'green','Grønn')}
-            ${createDiv(50,50,'hotpink','Hotpink')}
+        function show() {
+            document.getElementById("app").innerHTML = /*HTML*/ ` 
+        
+            <div onclick="selected('red')" style="width: 60px; height: 50px; background-color: red">RØD </div>
+            <div onclick="selected('green')" style="width: 60px; height: 50px; background-color: green">green </div>
+            <div onclick="selected('hotpink')" style="width: 60px; height: 50px; background-color: hotpink">Hotpink </div>
+            <br>
             <button onclick="changeBackground()">Bytt Bakgrunnsfarge</button>
+            
             `;
 
-           
+
         }
 
 
-        
+
         //controller
-        function createDiv(width,height,backgcolor,txt){
-            return `<div onclick="setBackgroundVar(${backgcolor})" style="width: ${width}px; height: ${height}px; background-color: ${backgcolor}">${txt} </div>`
-           
+        function selected(farge) {
+            bakgrunn = farge;
         }
-        
-        function changeBackground(){
-            return `<div style="background-color: ${backgcolor}"</div>`
-        }
-        
-        setBackgroundVar('red')
-        function setBackgroundVar(backgcolor){
-            bakgrunn = backgcolor;
-            console.log(bakgrunn)
+
+        function changeBackground() {
+            document.getElementById("app").innerHTML = <style="background-color: ${bakgrunn}"></style>
             
         }
+
 
 
     </script>
 </body>
+
 </html>
