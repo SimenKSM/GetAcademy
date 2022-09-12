@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app"></div>
+   
+
+<script>
+    //model
+    let childTic;
+    let adultTic;
+
+    //view
+    show()
+    function show(){
+        document.getElementById('app').innerHTML = /*HTML*/ `
+        <h3> Fyll inn alder for og kjøpe billett</h3>
+        <input onchange="ticket(this.value)" type ="number"> 
+        <H4>Antall Barnebilletter solgt:</h4>
+        <H4>Antall Voksenbiletter solgt:</h4>
+        
+        `;
+    }
+    //controller
+    function ticket(){
+        let age
+        if (age > 16){
+            adultTic++;
+        }
+        
+
+    }
+
+
+</script>
+</body>
+</html>
