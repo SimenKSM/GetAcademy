@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        //model
+        let colorText = 'red';
+        let sizeText = 20;
+        let colorBackground = 'hotpink'
+        let changeText = 'Hei'
+        let inputNumber = 0 || '';
+        let counter = 0 || '';
+        let textInput = '';
+        let textOnChange = '';
+        let result = '';
+        let result2 = '';
+        let result3 = '';
+
+        let texten = 'Hei på deg simen er best'; //24 lang
+        let countE = 0;
+        let whileVariabel = 10;
+        let testArray = [1, 4, 6, 5, 7, 10, 4]
+        let testTotal = 0;
+        let reversertTxt = ''
+        // for (let index = 0; index < texten.length; index++) {
+
+        //     if (texten[index] == 'e'){
+        //        countE++;
+
+        //     }
+        // }
+
+
+        // while (countE < whileVariabel ){
+        //     countE++
+        //     console.log('hei')
+        // }
+
+        // console.log(countE);
+        // for (let index = 0; index < testArray.length; index++) {
+            
+        //     testTotal += testArray[index];
+        //     console.log(testTotal)
+        // }
+        // console.log(testTotal)
+
+        for (let index = texten.length -1; index > 0; index--) {
+            reversertTxt += texten[index];
+              
+            }
+            console.log(reversertTxt)
+
+        //view
+        show()
+        function show() {
+            let HTML = '';
+            HTML += /*HTML*/ `
+    <h5 style="color: ${colorText}; font-size: ${sizeText}px; background-color: ${colorBackground};">${changeText}</h5>
+    <br>
+    <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">test</button>
+    ${createHeader('pink', 50, 'yellow', 'Endret med parameter')}
+    <br>
+    ${counter}
+    <br>
+    <input placeholder="Sender verdien onchange" type="numbers" onchange="recieveNumbers(this.value)">
+    <input placeholder="Sender verdien ved buttonclick " type="numbers" oninput="inputValue = this.value">
+    <input placeholder="Sender tekst onchange" type="text" onchange="stringTing(this.value)">
+    <input placeholder="Sender tekst oninput" type="text" oninput="textInput = this.value">
+    <button onclick="onTextValue(textInput)">InputText</button>
+
+    <button onclick="oninputValue(inputValue)">InputValue</button>
+    <br>
+    <br>
+    ${textOnChange}
+    ${result}
+    ${result2}
+    ${result3}
+    <br>
+    <br>
+    <div class="test"></div>
+
+    
+    
+    `;
+
+            document.getElementById('app').innerHTML = HTML
+        }
+        // finalValue = firstValue + text.slice(1, text.length);
+
+        //controller
+        function stringTing(text) {
+            textOnChange = text;
+            show()
+        }
+        function onTextValue(text) {
+            let firstValue = '';
+            let finalValue = '';
+            let secondValue = '';
+            let secondFinal = '';
+            firstValue = text.charAt(0);
+            firstValue = firstValue.toUpperCase()
+            secondValue = text.slice(1, text.length);
+            secondFinal = secondValue.toLowerCase();
+            finalValue = firstValue + secondFinal;
+
+            // reverse string
+
+
+            console.log(text)
+
+            console.log(firstValue)
+
+            console.log(finalValue)
+            console.log(secondFinal)
+
+
+
+
+            show()
+        }
+
+
+
+        function changeHeader(textColor, textSize, backgroundColor, textChange) {
+            colorText = textColor;
+            sizeText = textSize;
+            colorBackground = backgroundColor;
+            changeText = textChange;
+
+            show()
+        }
+        function createHeader(textColor, textSize, backgroundColor, textChange) {
+            return `<h5 style="color: ${textColor}; ${createHeaderFont(textSize)} background-color: ${backgroundColor};">${textChange}</h5>`
+        }
+
+        function createHeaderFont(textSize) {
+            return ` font-size: ${textSize}px;`;
+
+        }
+        function recieveNumbers(element) {
+            if (element <= 10 && element > 0) {
+                counter++;
+            }
+            else if (element > 10 || element < 0) {
+                counter--;
+            }
+            console.log(counter)
+            show()
+        }
+        function oninputValue(value) {
+            console.log(value)
+        }
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
