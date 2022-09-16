@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let biler = ['Touran', 'Caddy', 'Proace', 'Rav4']
+        let volkswagen = []
+        let toyota = []
+
+
+        //view
+        show()
+        function show() {
+            let HTML = '';
+            HTML += /*HTML*/ `
+            <input type="text" onchange="carChecker(this.value)">
+            <li>${volkswagen}</li>
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+
+        //controller
+        function carChecker(element) {
+            for (let index = 0; index < biler.length; index++) {
+
+                if ((biler[index] == element) && (element === 'Touran' || element === 'Caddy')) {
+                    volkswagen.push(element)
+                }
+                else if ((biler[index] == element) && (element === 'Proace' || element === 'Rav4'))
+                    toyota.push(element)
+                
+                console.log(biler[index])
+                console.log(index)
+            }
+            console.log(element)
+            
+            console.log(volkswagen)
+            console.log(toyota)
+         show()
+        }
+
+
+    </script>
+</body>
+
+</html>
