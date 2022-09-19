@@ -25,6 +25,8 @@
         let result = '';
         let result2 = '';
         let result3 = '';
+        let finalValue = '';
+        let resultatet = '';
 
         let texten = 'Hei på deg simen er best'; //24 lang
         let countE = 0;
@@ -82,6 +84,7 @@
     <br>
     <br>
     ${textOnChange}
+    ${resultatet}
     ${result}
     ${result2}
     ${result3}
@@ -112,6 +115,10 @@
             secondValue = text.slice(1, text.length);
             secondFinal = secondValue.toLowerCase();
             finalValue = firstValue + secondFinal;
+            resultatet = finalValue
+            show()
+           
+            
 
             // reverse string
 
