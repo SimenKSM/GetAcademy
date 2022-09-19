@@ -16,21 +16,37 @@
         //model
         let biler = ['Touran', 'Caddy', 'Proace', 'Rav4']
         let volkswagen = []
-        let toyota = []
+        let toyota = [];
 
 
         //view
         show()
         function show() {
             let HTML = '';
+            for (let index = 0; index < volkswagen.length; index++) {
+                volkswagen[index]
+                console.log(volkswagen[index])
+                HTML += `${volkswagen[index]}<br>
+                 `;
+            }
+            for (let index = 0; index < toyota.length; index++) {
+                toyota[index]
+                console.log(toyota[index])
+                HTML += `${toyota[index]}<br>
+                `;
+                
+            }
             HTML += /*HTML*/ `
             <input type="text" onchange="carChecker(this.value)">
-            <li>${volkswagen}</li>
+          
             `;
             document.getElementById('app').innerHTML = HTML;
         }
+        // Husk og lage to lister, de skal fylles opp med det som kommer i arrayet
+        // Se om du får brukt while igjen
 
         //controller
+
         function carChecker(element) {
             for (let index = 0; index < biler.length; index++) {
 
@@ -39,15 +55,11 @@
                 }
                 else if ((biler[index] == element) && (element === 'Proace' || element === 'Rav4'))
                     toyota.push(element)
-                
-                console.log(biler[index])
-                console.log(index)
+
+
             }
-            console.log(element)
-            
-            console.log(volkswagen)
-            console.log(toyota)
-         show()
+
+            show()
         }
 
 
