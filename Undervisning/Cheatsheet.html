@@ -134,10 +134,10 @@
 
             }
             console.log(reversertTxt)
+            show()
         }
-        // 
+        // Søker igjennom et array og sjekker om du har skrevet inn korrekt modell, så legger den det i korrekt array utifra biltype.
         let biler = ['Touran', 'Caddy', 'Proace', 'Rav4']
-        let biler2 = ['Touran', 'Caddy', 'Proace', 'Rav4']
         let volkswagen = []
         let toyota = [];
 
@@ -175,11 +175,12 @@
 
         }
         // Velger et random element i Arrayet biler, og tar det elementet ut av arrayet.
-        let random = Math.floor(Math.random() * biler.length); 
-        console.log(biler) // Sjekker at arrayet har alle verdiene det skal
-        console.log(random, biler[random]); // viser hva slags element variabelen fikk
-        biler.splice(random, 1) // Kunne også lagt til om jeg ville det med det siste parameteret
-        console.log(biler) // Sjekker at korrekt element er tatt ut av arrayet
+        let biler2 = ['Touran', 'Caddy', 'Proace', 'Rav4']
+        let random = Math.floor(Math.random() * biler2.length); 
+        console.log(biler2) // Sjekker at arrayet har alle verdiene det skal
+        console.log(random, biler2[random]); // viser hva slags element variabelen fikk
+        biler2.splice(random, 1) // Kunne også lagt til om jeg ville det med det siste parameteret
+        console.log(biler2) // Sjekker at korrekt element er tatt ut av arrayet
         
 
 
