@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <div id="app"></div>
+    <script>
+        //model 
+        let colorText = 'red';
+        let sizeText = 20;
+        let colorBackground = 'hotpink'
+        let changeText = 'Hei'
+        let inputNumber = 0 || '';
+        let counter = 0 || '';
+        
+        
+        // view
+        show()
+        function show(){
+            let HTML = '';
+            HTML += /*HTML*/ `
+            <h5 style="color: ${colorText}; font-size: ${sizeText}px; background-color: ${colorBackground};">${changeText}</h5>
+            <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">test</button>
+            ${createHeader('pink', 50, 'yellow', 'Endret med parameter')}
+            <input placeholder="Sender verdien onchange" type="numbers" onchange="recieveNumbers(this.value)">
+            <input placeholder="Sender verdien ved buttonclick " type="numbers" oninput="inputValue = this.value">
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+
+        //Controller
+        //Denne funksjonen tar i mot parametere, endrer innholdet i variablene og forandrer headern
+        function changeHeader(textColor, textSize, backgroundColor, textChange) {
+            colorText = textColor;
+            sizeText = textSize;
+            colorBackground = backgroundColor;
+            changeText = textChange;
+            show()
+        }
+        //Denne funksjonen tar i mot parametere og returnerer data.
+        function createHeader(textColor, textSize, backgroundColor, textChange) {
+            return `<h5 style="color: ${textColor}; ${createHeaderFont(textSize)} background-color: ${backgroundColor};">${textChange}</h5>`
+        }
+        //Her trekker vi ut font size fra forrige funksjon og returnerer den med en funksjon.
+        function createHeaderFont(textSize) {
+            return ` font-size: ${textSize}px;`;
+
+        }
+        function recieveNumbers(element) {
+            if (element <= 10 && element > 0) {
+                counter++;
+            }
+            else if (element > 10 || element < 0) {
+                counter--;
+            }
+            console.log('Counter Console logg',counter)
+            
+        }
+
+       
+    </script>
 </body>
+
 </html>
