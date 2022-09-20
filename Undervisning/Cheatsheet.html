@@ -29,8 +29,8 @@
             let HTML = '';
             HTML += /*HTML*/ `
             <h5 style="color: ${colorText}; font-size: ${sizeText}px; background-color: ${colorBackground};">${changeText}</h5>
-            <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">test</button>
-            ${createHeader('pink', 50, 'yellow', 'Endret med parameter')}
+            <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">changeHeader</button>
+            ${createHeader('pink', 50, 'yellow', 'Returnert med parametere')}
             <input placeholder="Sender verdien onchange" type="numbers" onchange="recieveNumbers(this.value)"><br>
             <input placeholder="Sender verdien ved buttonclick " type="numbers" oninput="inputValue = this.value"><br>
             <input placeholder="Sender tekst onchange" type="text" onchange="stringTing(this.value)"><br>
