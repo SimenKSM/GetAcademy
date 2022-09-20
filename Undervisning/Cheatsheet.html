@@ -18,18 +18,32 @@
         let changeText = 'Hei'
         let inputNumber = 0 || '';
         let counter = 0 || '';
-        
-        
+        let textOnChange = '';
+        let finalValue = '';
+        let resultatet = '';
+
+
         // view
         show()
-        function show(){
+        function show() {
             let HTML = '';
             HTML += /*HTML*/ `
             <h5 style="color: ${colorText}; font-size: ${sizeText}px; background-color: ${colorBackground};">${changeText}</h5>
             <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">test</button>
             ${createHeader('pink', 50, 'yellow', 'Endret med parameter')}
-            <input placeholder="Sender verdien onchange" type="numbers" onchange="recieveNumbers(this.value)">
-            <input placeholder="Sender verdien ved buttonclick " type="numbers" oninput="inputValue = this.value">
+            <input placeholder="Sender verdien onchange" type="numbers" onchange="recieveNumbers(this.value)"><br>
+            <input placeholder="Sender verdien ved buttonclick " type="numbers" oninput="inputValue = this.value"><br>
+            <input placeholder="Sender tekst onchange" type="text" onchange="stringTing(this.value)"><br>
+            <input placeholder="Sender tekst oninput" type="text" oninput="textInput = this.value"><br>
+            <button onclick="onTextValue(textInput)">InputText</button>
+            <br>Dette er teksten i onchangen som endret variabelen: ${textOnChange} 
+            <br>Dette er teksten i oninput formatert i onTextValue: ${resultatet}<br>
+            <button onclick="countE()">countE</button><br>
+            <button onclick="testArrayet()">TestArray</button><br>
+            <button onclick="reverseText()">Reverser text</button><br>
+            <input placeholder="Fyll inn biltype" type="text" onchange="carChecker(this.value)">
+            
+
             `;
             document.getElementById('app').innerHTML = HTML;
         }
@@ -52,6 +66,7 @@
             return ` font-size: ${textSize}px;`;
 
         }
+        // Tar i mot tall fra Onchange inputen og plusser counter om tallet er mellom 1-10 minus ellers.
         function recieveNumbers(element) {
             if (element <= 10 && element > 0) {
                 counter++;
@@ -59,11 +74,116 @@
             else if (element > 10 || element < 0) {
                 counter--;
             }
-            console.log('Counter Console logg',counter)
-            
+            console.log('Counter Console logg', counter)
+        }
+        // Tar i mot tall fra oninputen med parameter og consol logger det
+        function oninputValue(value) {
+            console.log(value)
         }
 
-       
+        function onTextValue(text) {
+            let firstValue = '';
+            let finalValue = '';
+            let secondValue = '';
+            let secondFinal = '';
+            firstValue = text.charAt(0); // Trekker ut bokstaven utifra hvilket nummer den er i rekken i stringen
+            firstValue = firstValue.toUpperCase() // Setter stor bokstav på bokstaven du trakk ut og la i variabelen.
+            secondValue = text.slice(1, text.length); // Tar ut alt av stringen fra bokstav nr 2 ut resten av stringen.
+            secondFinal = secondValue.toLowerCase(); // Setter små bokstaver i alt den slicet
+            finalValue = firstValue + secondFinal; // Legger første bokstav og slicen sammen
+            resultatet = finalValue
+            console.log(firstValue)
+            console.log(secondFinal)
+            console.log(finalValue)
+            show()
+        }
+        function stringTing(text) {
+            textOnChange = text;
+            show()
+        }
+
+
+        // Teller opp antall e' det er i stringen. Husk og kall på den i viewet
+        let texten = 'Hei på deg simen er best'; //24 lang
+        let countE1 = 0;
+        function countE() {
+            for (let index = 0; index < texten.length; index++) {
+
+                if (texten[index] == 'e') {
+                    countE1++;
+                    console.log(countE1)
+                }
+            }
+
+        }
+        // Plusser sammen alle tallene i et array
+        let testArray = [1, 4, 6, 5, 7, 10, 4]
+        let testTotal = 0;
+        function testArrayet() {
+            for (let index = 0; index < testArray.length; index++) {
+                testTotal += testArray[index];
+                console.log(testTotal)
+
+            }
+        }
+        //Reverserer teksten i en string 
+        let reversertTxt = '';
+        function reverseText() {
+            for (let index = texten.length - 1; index > 0; index--) {
+                reversertTxt += texten[index];
+
+            }
+            console.log(reversertTxt)
+        }
+        // 
+        let biler = ['Touran', 'Caddy', 'Proace', 'Rav4']
+        let biler2 = ['Touran', 'Caddy', 'Proace', 'Rav4']
+        let volkswagen = []
+        let toyota = [];
+
+        function carChecker(element) {
+            for (let index = 0; index < biler.length; index++) {
+
+                if ((biler[index] == element) && (element === 'Touran' || element === 'Caddy')) {
+                    volkswagen.push(element)
+                }
+                else if ((biler[index] == element) && (element === 'Proace' || element === 'Rav4'))
+                    toyota.push(element)
+
+
+            }
+            
+            console.log(volkswagen)
+            console.log(toyota)
+            show()
+        }
+        spliceArray()
+        // Trekker ut et objekt av arrayet
+        function spliceArray() {
+            // Elementene når du ved og bruke deres indexnummer[] //Gies ofte som parameter
+            // biler2.toString(); // Konverterer arrayet til en string
+            // biler2.splice(1 ,0, "Hilux"); // Første parameter velger posisjon i arrayet, andre parameter velger 
+            // om det skal fjernes elementer og det tredje parameteret er hva som legges inn
+            // biler2.unshift(Hilux); // Legger til et element først i arrayet og flytter alle andre objekter en plass frem
+            // biler2.shift(); // Fjerner det første objektet og flytter alle objektene ned en plass
+            // biler2.pop(); // Fjerner det siste elementet fra en array
+            // biler2.push(Hilux); // Putter inn et nytt element på slutten av et array
+            // biler2.slice(1) // Henter ut alt av arrayet fra og inkludert posisjon en
+            // biler2.splice(0, 1); Fjerner elementet på posisjon en
+
+            
+
+        }
+        // Velger et random element i Arrayet biler, og tar det elementet ut av arrayet.
+        let random = Math.floor(Math.random() * biler.length); 
+        console.log(biler) // Sjekker at arrayet har alle verdiene det skal
+        console.log(random, biler[random]); // viser hva slags element variabelen fikk
+        biler.splice(random, 1) // Kunne også lagt til om jeg ville det med det siste parameteret
+        console.log(biler) // Sjekker at korrekt element er tatt ut av arrayet
+        
+
+
+
     </script>
 </body>
 
