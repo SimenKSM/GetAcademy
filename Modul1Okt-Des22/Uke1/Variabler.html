@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //model
+        let count = 0;
+        let myInterval = '';
+        let minutes = 0;
+        let seconds = 0;
+        let roundTimers =[];
+
+        //view
+        show()
+        function show(){
+            let HTML = ``;
+            HTML += /*HTML*/`
+            <h4>Counter - Teller buttons</h4>
+            <h2>${count}</h2>
+            <button onclick="countUp()">Tell Oppover</button>
+            <button onclick="countDown()">Tell Nedover</button>
+            <br>
+            --------------------------------------------
+            <h4> Stoppeklokke</h4>
+            <h4>${minutes}:${seconds}</h4>
+            <button onclick="startTimer()">Start</Button>
+            <button onclick="roundTimer()">Rundetid</button>
+            <button onclick="stopTimer()">Stop</Button>
+            <button onclick="resetTimer()">Reset</Button>
+            <br>
+            Runde 1 = ${roundTimers[0]}<br>
+            Runde 2 = ${roundTimers[1]}<br>
+            Runde 3 = ${roundTimers[2]}<br>
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+
+        //Controller
+         function countUp(){
+            count ++;
+            show()
+         }
+         function countDown(){
+            count --;
+            show()
+         }
+        function myTimer(){
+            seconds++;
+            if (seconds == 60){
+                seconds = 0
+                minutes++;
+            }
+            show()
+        }
+        function startTimer(){
+            myInterval = setInterval(myTimer, 1000);
+            show()
+
+        }
+        function stopTimer(){
+            myInterval = clearInterval(myInterval)
+            show()
+        }
+        function roundTimer(){
+
+            roundTimers.push(`${minutes} Min:${seconds} Sec`)
+            seconds = 0;
+            minutes = 0;
+            show()
+        }
+        function resetTimer(){
+            seconds = 0;
+            minutes = 0;
+            roundTimers = [];
+            show()
+        }
+
+        
+    </script>
+    
+</body>
+</html>
