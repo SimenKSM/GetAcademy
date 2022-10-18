@@ -5,9 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
 </head>
 <body>
     <div id="app"></div>
+    <style>
+        .colorBlock{
+            height:30px;
+            width: 100px;
+            border: 1px solid black;
+            float: left;
+            margin:10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2vw;    
+        }
+        .selectedDiv{
+            border: 2px dashed goldenrod;
+        }
+        </style>
     
+    <script>
+        //Model
+        let chosenDiv = '';
+        
+
+        //view
+        show()
+        function show(){
+            let HTML = '';
+            HTML += /*HTML*/ `
+            <div class="colorBlock" onclick="chooseColor(this.innerHTML)" style="background-color:#4DB5F4;">#4DB5F4</div>
+            <div class="colorBlock" onclick="chooseColor(this.innerHTML)" style="background-color:#FCF940;">#FCF940</div>
+            <div class="colorBlock" onclick="chooseColor(this.innerHTML)" style="background-color:#FC40F6;">#FC40F6</div>
+            <button>Change background</button>
+            
+            `;
+            document.getElementById('app').innerHTML = HTML;
+
+
+        }
+        
+        //Controller
+        function chooseColor(color){
+            
+
+        }
+
+
+        // ${creatDiv(30,100,1,'#4DB5F4','left',10,'center','bold',1.2,'#4DB5F4','px','solid','black')}
+        //     ${creatDiv(30,100,1,'#FCF940','left',10,'center','bold',1.2,'#FCF940','px','solid','black')}
+        //     ${creatDiv(30,100,1,'#FC40F6','left',10,'center','bold',1.2,'#FC40F6','px','solid','black')}
+        // function creatDiv(height,width,border,backgcolor,float,margin,textalign,fontw,fonts,inner,pixler,solid,black){
+        //     return `<div style="height:${height}px; 
+        //                         width: ${width}px; 
+        //                         border: ${border}${pixler} ${solid} ${black}; 
+        //                         background-color:${backgcolor};
+        //                         float: ${float};
+        //                         margin:${margin}px;
+        //                         text-align: ${textalign};
+        //                         font-weight: ${fontw};
+        //                         font-size: ${fonts}vw;    
+        //                         ">${inner}</div>`;
+        //                         show()
+        // }
+        
+
+
+    </script>
 </body>
 </html>
