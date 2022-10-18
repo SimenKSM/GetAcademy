@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteinSaksPapir Team 1 Opg. 4</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+    <!-- <img src="Paper.png" alt=""> -->
+
+    <script>
+        //simen
+        //model
+        let pictureSelection = ['Paper.png', 'Rock.png', 'Scissors.png'];
+        let pSelect = '';
+        let siteChange = 0;
+        let comSelect = '';
+        let winningTxt;
+        let playerPoints = 0;
+        let computerPoints = 0;
+
+
+        //view
+        show();
+        function show() {
+            let html = '';
+            if (siteChange == 0) {
+                html = htmlSite1();
+            }
+            else html = htmlSite2();
+            document.getElementById('app').innerHTML = html;
+        }
+        function htmlSite1() {
+            let html = '';
+            html =/*HTML*/ `
+            <h1> Stein, saks, papir spill. </h1>
+           
+            `;
+            for (let i = 0; i < pictureSelection.length; i++) {
+                html += `<img src="${pictureSelection[i]}" onclick="gameFunc(${i})" alt="">`;
+            }
+            return html;
+        }
+        function htmlSite2() {
+            let html = '';
+            html = `
+            <h2>${winningTxt}</h2> <br>
+            <img src="${pSelect}" alt="">
+            vs
+            <img src="${comSelect}" alt=""> <br> 
+            
+            <button onclick="resetFunc()">Prøv igjen</button>
+            <h3>Spiller poeng: ${playerPoints}<br/>Computer poeng: ${computerPoints}</h3>`;
+
+            return html;
+        }
+
+        //controller
+        function gameFunc(index) {
+            playerSelect(index);
+            let cSelect = computerSelect();
+            console.log(cSelect);
+            checkWinner(index, cSelect);
+            show()
+        }
+        // Player velger stein, saks eller papir og går til neste side.
+        function playerSelect(index) {
+            pSelect = pictureSelection[index];
+            siteChange = 1;
+        }
+        // Pc velger stein, saks eller papir
+        function computerSelect() {
+            let cSelect = null;
+            cSelect = Math.floor(Math.random() * pictureSelection.length);
+            comSelect = pictureSelection[cSelect];
+            return cSelect;
+        }
+
+        function checkWinner(index, comSelect) {
+            // Uavgjort
+            if (comSelect === index) {
+                winningTxt = 'Det ble uavgjort';
+            }
+            // Win
+            else if (comSelect != index) {
+                if ((index == 0 && comSelect == 1) || (index == 1 && comSelect == 2) || (index == 2 && comSelect == 0)) {
+                    winningTxt = 'Du vant';
+                    playerPoints++;
+                }
+                else {
+                    winningTxt = 'Computern vant';
+                    computerPoints++;
+                }
+            }
+        }
+        // Gå tilbake til startskjermen
+        function resetFunc() {
+            siteChange = 0;
+            show()
+        }
+    </script>
+</body>
+
+</html>
