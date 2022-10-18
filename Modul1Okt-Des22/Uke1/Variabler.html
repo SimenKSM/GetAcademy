@@ -23,8 +23,8 @@
             HTML += /*HTML*/`
             <h4>Counter - Teller buttons</h4>
             <h2>${count}</h2>
-            <button onclick="countUp()">Tell Oppover</button>
-            <button onclick="countDown()">Tell Nedover</button>
+            <button onclick="counter('+')">Tell Oppover</button>
+            <button onclick="counter('-')">Tell Nedover</button>
             <br>
             --------------------------------------------
             <h4> Stoppeklokke</h4>
@@ -42,14 +42,14 @@
         }
 
         //Controller
-         function countUp(){
-            count ++;
+         function counter(operator){
+            if (operator == '+'){
+                count++;
+            }
+            else count--;
             show()
          }
-         function countDown(){
-            count --;
-            show()
-         }
+        
         function myTimer(){
             seconds++;
             if (seconds == 60){
@@ -68,7 +68,6 @@
             show()
         }
         function roundTimer(){
-
             roundTimers.push(`${minutes} Min:${seconds} Sec`)
             seconds = 0;
             minutes = 0;

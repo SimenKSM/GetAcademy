@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivå 2</title>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mainDiv"></div>
+    <button onclick="valgfrittNavn('red',50,100,'px')">Test 1</button>
+    <button onclick="valgfrittNavn('blue',75,200,'px')">Test 2</button>
+    <button onclick="valgfrittNavn('blue',100,100,'vh')">Test 3</button>
+  
+    <script>
+     
+       
+       
+        //Controller
+        function valgfrittNavn(color,width,height,heightmodifier) {
+            document.getElementById('mainDiv').innerHTML = /*html*/`
+                <div style="background-color:${color}; width: ${width}%; height:${height}${heightmodifier};"></div>
+            `;
+            
+        }
+        
+     
+    </script>
+    
+</body>
+</html>
