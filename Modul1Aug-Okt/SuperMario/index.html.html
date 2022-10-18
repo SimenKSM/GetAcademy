@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            height: 100px;
+            width: 100px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    </style>
+    <!-- Last ned png bildene av mario,luigi,peach,yoshi og bowser
+    Valgfritt å ta med bildene av (toad) og bowsershroom.
+    Disse skal vises frem som en select character type skjerm
+    Når man klikker på en av de, skal de ut i kamp mot bowser!
+    Da vises bildet av bowser og den valgte karakteren, samt hpn deres
+    Bowser har 300 i hp, mario har 200hp, peach har 100hp, yoshi har 80hp og luigi har 140hp
+    Lag en knapp for bowser til å angripe motstanderen, og en knapp for den valgte karakteren så de kan slå bowser
+    bruk variabler og if - setninger for å sette hvem karakteren er og vise statsene dems slik at du unngår for mange forskjellige metoder.
+    Dersom du har med bildene av soppene kan disse settes ved siden av karakterene i kombat - og regenerere helsen dems. Toad- gir liv til den valgte
+    karakteren, mens bowsershroom regenererer helsen til bowser smile
+    lykke til! -->
+</head>
+
+
+<body>
+    <img id="luigi" src="img/luigi.png" onclick="selectedChar(this)"></img>
+    <img id="mario" src="img/mario.png" onclick="selectedChar(this)"></img>
+    <img id="peach" src="img/peach.png" onclick="selectedChar(this)"></img>
+    <img id="yoshi" src="img/yoshi.png" onclick="selectedChar(this)"></img>
+    </br></br></br>
+    <div class="container">
+        <div >
+            <img id="selected"></img>
+            <div id=showCharHP>100 HP</div>
+            <button onclick="AttackOpponent('character')">Attack Bowser</button>
+        </div>
+        <div>
+            <img id="bowser" src="img/bowser.png" style= />
+            <div id="BowserHP">300 HP</div>
+            <button onclick="AttackOpponent('bowser')">Attack</button>
+        </div>
+    </div>
+    <script>
+        let BowserHP = 300;
+        let charHP = 0;
+
+        function AttackOpponent(attacker) {
+            if (attacker == 'character') {
+                BowserHP -= 20;
+                document.getElementById("BowserHP").innerHTML = BowserHP + "HP";
+            }
+            else {
+                charHP -= 50;
+                document.getElementById("showCharHP").innerHTML = charHP;
+            }
+        }
+
+        function selectedChar(element) { // Velger karakter
+            let selected = document.getElementById("selected").src = element.src;
+            showCharHP(element);
+            updateHP();
+        }
+
+        function updateHP() { // Oppdaterer HP'en til valgt karakter
+            document.getElementById("showCharHP").innerHTML = charHP + "HP";
+        }
+        function showCharHP(element) { // Viser HP til karateren i showcharHP diven
+            if (element.id == 'luigi') {
+                charHP = 140;
+            }
+            else if (element.id == 'mario') {
+                charHP = 200;
+            }
+            else if (element.id == 'peach') {
+                charHP = 100;
+            }
+            if (element.id == 'yoshi') {
+                charHP = 80;
+            }
+
+
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

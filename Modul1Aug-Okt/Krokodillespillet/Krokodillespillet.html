@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            height: 200px;
+            width: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Model
+        var points = 0;
+        var randNum1 = 0;
+        var randNum2 = 0;
+        var inputNum = "";
+        var pointsTemp = 0;
+
+
+
+
+        // View 
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+        
+        <h2>Poeng:${points}</h2>
+        <img src="img/krokodille.jpg"</img>
+        <h3>Sett inn <  >  = </h3>
+        </br>
+        ${randNum1}
+        <input type="test" oninput="inputNum =this.value"></input> 
+        ${randNum2}
+        </br></br></br>
+        <button onclick="onSubmit()">Submit</button>
+        <button onclick="onReset()">Få Nye Tall</button>
+        
+        `;
+
+
+
+
+        }
+
+        // Controller
+        function onSubmit() {
+            if ((randNum1 > randNum2 && inputNum === '>') || (randNum1 < randNum2 && inputNum === '<') || (randNum1 == randNum2 && inputNum === '=')) {
+                points += 1;
+
+            }
+            else {
+                points -= 1;
+
+            }
+            if ((inputNum !== '>') && (inputNum !== '<') && (inputNum !== '=')) {
+                return;
+            }
+            updateView()
+            onReset()
+
+
+        }
+
+
+        function onReset() {
+            randNum1 = Math.floor(Math.random() * 10) + 1
+            randNum2 = Math.floor(Math.random() * 10) + 1
+
+            updateView()
+        }
+        updateView()
+
+
+    </script>
+
+</body>
+
+</html>
