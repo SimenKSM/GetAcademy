@@ -42,7 +42,7 @@
         }
 
         //Controller
-         function counter(operator){
+         function counter(operator){ //Pluss eller Minus på visuell teller 
             if (operator == '+'){
                 count++;
             }
@@ -50,7 +50,7 @@
             show()
          }
         
-        function myTimer(){
+        function myTimer(){ //Funksjon for stoppeklokken
             seconds++;
             if (seconds == 60){
                 seconds = 0
@@ -58,22 +58,22 @@
             }
             show()
         }
-        function startTimer(){
+        function startTimer(){ //Starter stoppeklokken
             myInterval = setInterval(myTimer, 1000);
             show()
 
         }
-        function stopTimer(){
+        function stopTimer(){ // Pauser stoppeklokken
             myInterval = clearInterval(myInterval)
             show()
         }
-        function roundTimer(){
+        function roundTimer(){ //Pushe rundetidene inn i et array (Mangler og fjerne undefined)
             roundTimers.push(`${minutes} Min:${seconds} Sec`)
             seconds = 0;
             minutes = 0;
             show()
         }
-        function resetTimer(){
+        function resetTimer(){ //Resetter alt
             seconds = 0;
             minutes = 0;
             roundTimers = [];
