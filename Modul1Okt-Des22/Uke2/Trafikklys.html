@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #trafikklys {
+            width: 210px;
+            height: 700px;
+            background-color: #4e4c4c;
+            border-radius: 5em;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 15px;
+        }
+
+        .rød {
+            background-color: red;
+            opacity: 10%;
+        }
+
+        .orange {
+            background-color: orange;
+            opacity: 10%;
+        }
+
+        .grønn {
+            background-color: green;
+            opacity: 10%;
+        }
+
+        .sirkel {
+            box-shadow: -5px 10px 20px 10px black inset;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+
+        }
+
+        .active {
+            opacity: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="trafikklys">
+
+    </div>
+    <script>
+        //Model
+        let changeOpacity = ['active', '', ''];
+
+        //View
+        show()
+        function show() {
+            let HTML = '';
+            HTML += `
+        <div class="rød sirkel ${changeOpacity[0]}"></div>
+        <div class="orange sirkel ${changeOpacity[1]}"></div>
+        <div class="grønn sirkel ${changeOpacity[2]}"></div>
+    
+    `;
+            document.getElementById('trafikklys').innerHTML = HTML;
+        }
+        //Controller 
+        function changeLights() {
+            for (let index = 0; index < changeOpacity.length; index++) {
+                if (changeOpacity[0] == 'active') {
+                    changeOpacity[1] = 'active';
+                    changeOpacity[0] = '';
+                    changeOpacity[2] = '';
+                    setTimeout(changeLights, 5000);
+                }
+                else if (changeOpacity[1] == 'active') {
+                    changeOpacity[2] = 'active';
+                    changeOpacity[1] = '';
+                }
+
+                console.log(changeOpacity)
+            }
+            show()
+        }
+
+        
+        
+        timerLight()
+        function timerLight() {
+            setInterval(changeLights, 5000);
+        }
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
