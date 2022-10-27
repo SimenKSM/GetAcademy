@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-          
-          
-          
-      <div id="app"></div>
 
 
-         
+
+    <div id="app"></div>
+
+
+
     <script>
         //model
-        random = Math.floor(Math.random() * 300) + 1;
+        random = Math.floor(Math.random() * 300) + 1; // Velger et tilfeldig tall mellom 1-300 som blir ID
+        console.log('Vi fikk tilfeldig ID', random)
 
-        console.log(random)
-       
 
         //view
         show()
-        function show(){
+        function show() {
             let HTML = '';
             HTML += `
             <button onclick="refreshPage()">Refresh Image</button><br>
@@ -35,13 +36,16 @@
         }
 
         //controller
-        function refreshPage(){
+
+        function refreshPage() { // Gir random variablelen et tilfeldig tall fra 1-300 når vi klikker på Refresh page
             random = Math.floor(Math.random() * 300) + 1;
             show()
+            console.log('Ny ID', random)
         }
 
-        
+
     </script>
-    
+
 </body>
+
 </html>
