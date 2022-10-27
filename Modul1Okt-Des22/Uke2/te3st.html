@@ -17,7 +17,7 @@
     <script>
         //model
         random = Math.floor(Math.random() * 300) + 1;
-        
+
         console.log(random)
        
 
@@ -26,7 +26,7 @@
         function show(){
             let HTML = '';
             HTML += `
-            <button onclick="window.location.reload()">Refresh Image</button><br>
+            <button onclick="refreshPage()">Refresh Image</button><br>
             <img src="https://picsum.photos/id/${random}/200/300">
          
             
@@ -35,6 +35,9 @@
         }
 
         //controller
+        function refreshPage(){
+            random = Math.floor(Math.random() * 300) + 1;
+        }
 
         
     </script>
