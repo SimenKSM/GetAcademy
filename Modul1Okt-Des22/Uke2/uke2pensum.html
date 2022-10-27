@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <style>
+        /* #app{
+            height: 100px;
+            width: 100px;
+            background-color: hotpink;
+        } */
+        .classtest{
+            height: 100px;
+            width: 100px;
+            background-color: hotpink;
+        }
+    </style>
+    <div id="app">Hei</div>
+    <script>
+
+        //Model
+        let classHeight = 100;
+        let classWidth = 100;
+        let backGroundC = "Hotpink";
+
+        //View
+        show()
+        function show(){
+            let HTML = '';
+            HTML += /*HTML*/ `
+            ${createDiv(100,100,"red")}<br>
+            <div onclick=changeDiv(200,200,"Yellow") style="height: ${classHeight}px; width: ${classWidth}px; background-color: ${backGroundC};"></div>
+            <div class="Fotoramme">
+            <img src="https://picsum.photos/200/300">
+            </div>
+
+            
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+        
+        //Controller
+        function createDiv(height,width,backgcolor){
+            return `<div style="height: ${height}px; width: ${width}px; background-color: ${backgcolor}">Hei</div>  `;
+            show()
+        }
+        function changeDiv(height, width, backgroundColor){
+            classHeight = height;
+            classWidth = width;
+            backGroundC = backgroundColor;
+            show()
+        }
+
+    </script>
+    
+</body>
+</html>
