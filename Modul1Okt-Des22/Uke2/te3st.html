@@ -18,8 +18,8 @@
 
     <script>
         //model
-        random = Math.floor(Math.random() * 300) + 1; // Velger et tilfeldig tall mellom 1-300 som blir ID
-        console.log('Vi fikk tilfeldig ID', random)
+        random = Math.floor(Math.random() * 300) + 1; //Velger et tilfeldig tall mellom 1-300 som blir ID
+        console.log('Vi fikk tilfeldig ID', random) //Console logger den første verdien vi får når vi åpner siden
 
 
         //view
@@ -27,7 +27,7 @@
         function show() {
             let HTML = '';
             HTML += `
-            <button onclick="refreshPage()">Refresh Image</button><br>
+            <button onclick="refreshImage()">Next Image</button><br>
             <img src="https://picsum.photos/id/${random}/200/300">
          
             
@@ -36,9 +36,9 @@
         }
 
         //controller
-        function refreshPage() { // Gir random variablelen et tilfeldig tall fra 1-300 når vi klikker på Refresh page
+        function refreshImage() { //Funksjon som gir random variabelen en ny verdi og oppdaterer viewet + console.log ny verdi
             random = Math.floor(Math.random() * 300) + 1;
-            show()
+            show() 
             console.log('Ny ID', random)
         }
 
