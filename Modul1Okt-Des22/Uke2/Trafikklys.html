@@ -60,7 +60,7 @@
         let redLightOpacity = 'active';
         let orangeLightOpacity = '';
         let greenLightOpacity = '';
-        
+
         //View
         show()
         function show() {
@@ -71,52 +71,44 @@
         <div class="grønn sirkel ${greenLightOpacity}"></div>
         
     
-    `;
+        `;
             document.getElementById('trafikklys').innerHTML = HTML;
         }
         //Controller 
-    
+
         lightController()
         setInterval(lightController, 10000)
-       
-       function redLight(){
-        activeLights('active', '','')
-        
+
+        function redLight() {
+            activeLights('active', '', '')
         }
-       
-       function orangeLight(){
-        activeLights('', 'active','')
-        
 
-       }
-       function greenLight(){
-        activeLights('', '','active')
-        
-       }
-       
-       function redOrangeLight(){
-        activeLights('active', 'active','')
-        
+        function orangeLight() {
+            activeLights('', 'active', '')
+        }
+        function greenLight() {
+            activeLights('', '', 'active')
+        }
 
-       }
+        function redOrangeLight() {
+            activeLights('active', 'active', '')
+        }
 
-       function activeLights(red,orange,green){
-        redLightOpacity = red;
-        orangeLightOpacity = orange;
-        greenLightOpacity = green;
-        show()
-
-       }
-       function lightController(){
-            redLight();
-            setTimeout(redOrangeLight,3000)
-            setTimeout(greenLight,5000)
-            setTimeout(orangeLight,7000)
-            setTimeout(redLight,10000)
+        function activeLights(red, orange, green) {
+            redLightOpacity = red;
+            orangeLightOpacity = orange;
+            greenLightOpacity = green;
             show()
-            
-       } 
-       
+        }
+        function lightController() {
+            redLight();
+            setTimeout(redOrangeLight, 3000)
+            setTimeout(greenLight, 5000)
+            setTimeout(orangeLight, 7000)
+            setTimeout(redLight, 10000)
+            show()
+        }
+
 
     </script>
 </body>
