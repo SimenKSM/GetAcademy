@@ -57,45 +57,94 @@
     </div>
     <script>
         //Model
-        let changeOpacity = ['active', '', ''];
-
+        let redLightOpacity = 'active';
+        let orangeLightOpacity = '';
+        let greenLightOpacity = '';
+        
         //View
         show()
         function show() {
             let HTML = '';
             HTML += `
-        <div class="rød sirkel ${changeOpacity[0]}"></div>
-        <div class="orange sirkel ${changeOpacity[1]}"></div>
-        <div class="grønn sirkel ${changeOpacity[2]}"></div>
+        <div class="rød sirkel ${redLightOpacity}"></div>
+        <div class="orange sirkel ${orangeLightOpacity}"></div>
+        <div class="grønn sirkel ${greenLightOpacity}"></div>
+        
     
     `;
             document.getElementById('trafikklys').innerHTML = HTML;
         }
         //Controller 
-        function changeLights() {
-            for (let index = 0; index < changeOpacity.length; index++) {
-                if (changeOpacity[0] == 'active') {
-                    changeOpacity[1] = 'active';
-                    changeOpacity[0] = '';
-                    changeOpacity[2] = '';
-                    setTimeout(changeLights, 5000);
-                }
-                else if (changeOpacity[1] == 'active') {
-                    changeOpacity[2] = 'active';
-                    changeOpacity[1] = '';
-                }
+    
+        lightController()
+        setInterval(lightController, 15000)
+       
+       function redLight(){
+        redLightOpacity = 'active';
+        orangeLightOpacity = '';
+        greenLightOpacity = '';
+        show()
 
-                console.log(changeOpacity)
-            }
+       }
+       
+       function orangeLight(){
+        redLightOpacity = '';
+        orangeLightOpacity = 'active';
+        greenLightOpacity = '';
+        show()
+
+       }
+       function greenLight(){
+        redLightOpacity = '';
+        orangeLightOpacity = '';
+        greenLightOpacity = 'active';
+        show()
+       }
+       
+       function redOrangeLight(){
+        redLightOpacity = 'active';
+        orangeLightOpacity = 'active';
+        greenLightOpacity = '';
+        show()
+
+       }
+       function lightController(){
+            redLight();
+            setTimeout(redOrangeLight,3000)
+            setTimeout(greenLight,5000)
+            setTimeout(orangeLight,10000)
+            setTimeout(redLight,15000)
             show()
-        }
+            
+       } 
+       
+       
+       
+       
+        // function changeLights() {
+        //     for (let index = 0; index < changeOpacity.length; index++) {
+        //         if (changeOpacity[0] == 'active') {
+        //             changeOpacity[1] = 'active';
+        //             changeOpacity[0] = '';
+        //             changeOpacity[2] = '';
+        //             setTimeout(changeLights, 5000);
+        //         }
+        //         else if (changeOpacity[1] == 'active') {
+        //             changeOpacity[2] = 'active';
+        //             changeOpacity[1] = '';
+        //         }
+
+        //         console.log(changeOpacity)
+        //     }
+        //     show()
+        // }
 
         
         
-        timerLight()
-        function timerLight() {
-            setInterval(changeLights, 5000);
-        }
+        // timerLight()
+        // function timerLight() {
+        //     setInterval(changeLights, 5000);
+        // }
 
 
 
