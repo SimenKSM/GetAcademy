@@ -77,34 +77,32 @@
         //Controller 
     
         lightController()
-        setInterval(lightController, 15000)
+        setInterval(lightController, 10000)
        
        function redLight(){
-        redLightOpacity = 'active';
-        orangeLightOpacity = '';
-        greenLightOpacity = '';
-        show()
-
-       }
+        activeLights('active', '','')
+        
+        }
        
        function orangeLight(){
-        redLightOpacity = '';
-        orangeLightOpacity = 'active';
-        greenLightOpacity = '';
-        show()
+        activeLights('', 'active','')
+        
 
        }
        function greenLight(){
-        redLightOpacity = '';
-        orangeLightOpacity = '';
-        greenLightOpacity = 'active';
-        show()
+        activeLights('', '','active')
+        
        }
        
        function redOrangeLight(){
-        redLightOpacity = 'active';
-        orangeLightOpacity = 'active';
-        greenLightOpacity = '';
+        activeLights('active', 'active','')
+        
+
+       }
+       function activeLights(red,orange,green){
+        redLightOpacity = red;
+        orangeLightOpacity = orange;
+        greenLightOpacity = green;
         show()
 
        }
@@ -112,8 +110,8 @@
             redLight();
             setTimeout(redOrangeLight,3000)
             setTimeout(greenLight,5000)
-            setTimeout(orangeLight,10000)
-            setTimeout(redLight,15000)
+            setTimeout(orangeLight,7000)
+            setTimeout(redLight,10000)
             show()
             
        } 
