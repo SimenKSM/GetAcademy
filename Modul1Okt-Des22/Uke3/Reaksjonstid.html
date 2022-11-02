@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lamp {
+            border-radius: 50%;
+            background-color: hotpink;
+            height: 100px;
+            width: 100px;
+            opacity: 30%;
+        }
+
+        .wrapper {
+            width: 600px;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(5, 100px);
+            grid-template-rows: repeat(5, 100px);
+            grid-auto-flow: column;
+        }
+
+        .lightOn {
+            Opacity: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+
+        //Model
+        let selectedLampIndex= 0;
+        let selectedLampLight= '';
+
+        //View
+        show()
+        generateRandomNumber()
+        function show() {
+            let HTML = '';
+            HTML += /*HTML*/`
+            <div class='wrapper'>
+            <div class='lamp ${selectedLampLight}'></div> 
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class="lamp ${selectedLampLight}"></div>
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class='lamp ${selectedLampLight}'></div>
+            <div class='lamp ${selectedLampLight}'></div> 
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class="lamp ${selectedLampLight}"></div>
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class='lamp ${selectedLampLight}'></div>
+            <div class='lamp ${selectedLampLight}'></div> 
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class="lamp ${selectedLampLight}"></div>
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class='lamp ${selectedLampLight}'></div>
+            <div class='lamp ${selectedLampLight}'></div> 
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class="lamp ${selectedLampLight}"></div>
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class='lamp ${selectedLampLight}'></div>
+            <div class='lamp ${selectedLampLight}'></div> 
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class="lamp ${selectedLampLight}"></div>
+            <div class="lamp ${selectedLampLight}"></div> 
+            <div class='lamp ${selectedLampLight}'></div>
+            </div>
+            
+            `;
+            document.getElementById('app').innerHTML = HTML;
+
+        }
+
+        //Controller
+        function generateRandomNumber() {
+            selectedLampIndex =  Math.floor((Math.random() * 25) + 1);
+            selectedLampLight = '';
+
+            show()
+        }
+
+    </script>
+
+</body>
+
+</html>
