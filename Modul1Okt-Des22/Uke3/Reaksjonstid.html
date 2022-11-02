@@ -12,7 +12,7 @@
             background-color: hotpink;
             height: 100px;
             width: 100px;
-            opacity: 30%;
+            opacity: 10%;
         }
 
         .wrapper {
@@ -36,40 +36,41 @@
 
         //Model
         let selectedLampIndex= 0;
-        let selectedLampLight= '';
-
+        let selectedLampDiv= [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+        
         //View
         show()
-        generateRandomNumber()
+        
+        setTimeout(lightDiv,2000)
         function show() {
             let HTML = '';
             HTML += /*HTML*/`
             <div class='wrapper'>
-            <div class='lamp ${selectedLampLight}'></div> 
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class="lamp ${selectedLampLight}"></div>
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class='lamp ${selectedLampLight}'></div>
-            <div class='lamp ${selectedLampLight}'></div> 
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class="lamp ${selectedLampLight}"></div>
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class='lamp ${selectedLampLight}'></div>
-            <div class='lamp ${selectedLampLight}'></div> 
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class="lamp ${selectedLampLight}"></div>
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class='lamp ${selectedLampLight}'></div>
-            <div class='lamp ${selectedLampLight}'></div> 
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class="lamp ${selectedLampLight}"></div>
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class='lamp ${selectedLampLight}'></div>
-            <div class='lamp ${selectedLampLight}'></div> 
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class="lamp ${selectedLampLight}"></div>
-            <div class="lamp ${selectedLampLight}"></div> 
-            <div class='lamp ${selectedLampLight}'></div>
+            <div class='lamp ${selectedLampDiv[1]}'></div> 
+            <div class='lamp ${selectedLampDiv[2]}'></div> 
+            <div class='lamp ${selectedLampDiv[3]}'></div>
+            <div class='lamp ${selectedLampDiv[4]}'></div> 
+            <div class='lamp ${selectedLampDiv[5]}'></div>
+            <div class='lamp ${selectedLampDiv[6]}'></div> 
+            <div class='lamp ${selectedLampDiv[7]}'></div> 
+            <div class='lamp ${selectedLampDiv[8]}'></div>
+            <div class='lamp ${selectedLampDiv[9]}'></div> 
+            <div class='lamp ${selectedLampDiv[10]}'></div>
+            <div class='lamp ${selectedLampDiv[11]}'></div> 
+            <div class='lamp ${selectedLampDiv[12]}'></div> 
+            <div class='lamp ${selectedLampDiv[13]}'></div>
+            <div class='lamp ${selectedLampDiv[14]}'></div> 
+            <div class='lamp ${selectedLampDiv[15]}'></div>
+            <div class='lamp ${selectedLampDiv[16]}'></div> 
+            <div class='lamp ${selectedLampDiv[17]}'></div> 
+            <div class='lamp ${selectedLampDiv[18]}'></div>
+            <div class='lamp ${selectedLampDiv[19]}'></div> 
+            <div class='lamp ${selectedLampDiv[20]}'></div>
+            <div class='lamp ${selectedLampDiv[21]}'></div> 
+            <div class='lamp ${selectedLampDiv[22]}'></div> 
+            <div class='lamp ${selectedLampDiv[23]}'></div>
+            <div class='lamp ${selectedLampDiv[24]}'></div> 
+            <div class='lamp ${selectedLampDiv[25]}'></div>
             </div>
             
             `;
@@ -78,12 +79,20 @@
         }
 
         //Controller
-        function generateRandomNumber() {
-            selectedLampIndex =  Math.floor((Math.random() * 25) + 1);
-            selectedLampLight = '';
-
-            show()
+      
+        function lightDiv(){
+        selectedLampIndex =  Math.floor((Math.random() * 25) + 1);
+           for (let index = 0; index < selectedLampDiv.length; index++) {
+                if (index == selectedLampIndex) {
+                    selectedLampDiv[index] = 'lightOn';
+                    console.log(selectedLampIndex, selectedLampDiv[index])
+                }
+               
+           }
+           show()
         }
+
+    
 
     </script>
 
