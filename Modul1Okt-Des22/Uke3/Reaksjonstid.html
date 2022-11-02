@@ -42,16 +42,16 @@
         let selectedLampIndex = 0;
         let selectedLampLight = [];
         let selectedLampClick = [];
+        let tempStart = '';
+        let tempStop = '';
 
 
-        // var startTime = new Date().getTime();
         // var finishTime = new Date().getTime();
         // var spentMilliseconds = Math.floor(finishTime - startTime);
         // var spentSeconds = spentMilliseconds / 1000;
 
         //View
         show()
-
         setTimeout(lightDiv, 2000)
         function show() {
             let HTML = '';
@@ -101,16 +101,21 @@
             selectedLampClick = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
             selectedLampIndex = Math.floor((Math.random() * 25) + 1);
             for (let index = 1; index < selectedLampLight.length; index++) {
-                if (index == selectedLampIndex) {
+                if (index === selectedLampIndex) {
+                    let startTime = new Date().getTime();
+                    tempStart = startTime;
                     selectedLampLight[index] = 'lightOn';
                     selectedLampClick[index] = 'onclick=setTimeout(lightDiv,1000)';
                     console.log(selectedLampIndex, index, selectedLampLight[index])
+
                 }
+                
             }
             show()
 
         }
         function timer() {
+
 
         }
 
