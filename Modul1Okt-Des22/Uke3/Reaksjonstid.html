@@ -18,7 +18,15 @@
             background-color: rgb(46, 46, 46);
             font-family: 'Press Start 2P', cursive;
         }
-
+        button{
+            
+            border: solid 4px;
+            background-color: rgb(78, 78, 78);
+            height:50px;
+            width:150px;
+            border-radius: 15px;
+            font-family: 'Press Start 2P', cursive;
+        }
         .lamp {
             border-style: solid;
             border-radius: 50%;
@@ -63,18 +71,20 @@
         let tempStop = '';
         let spentSeconds = 0;
         let tempScore = 0;
-        let highScore = 10;
+        let highScore = 10 || '';
+        let disableBtn='disabled';
+        let counter = 0;
 
 
         //View
         show()
-        setTimeout(lightDiv, 2000)
+        
         function show() {
             let HTML = '';
             HTML += /*HTML*/`
             <div class='text'>
             <h3>Reaksjonsspill</h3>
-            <h4>klikk så fort du klarer</h4>
+            <h4>Klikk så fort du klarer</h4>
             </div>
             <div class='wrapper'>
             
@@ -104,12 +114,15 @@
             <div class='lamp ${selectedLampLight[24]}'${selectedLampClick[24]}></div> 
             <div class='lamp ${selectedLampLight[25]}'${selectedLampClick[25]}></div>
             </div>
-            <div class='text'>
             
+            <div class='text'>
+            <br>
+            <button onclick="startGame()">Start Game</button>
             <br>
             CurrentClick: ${spentSeconds} Seconds
             <br><br><br>
             HighScore: ${highScore} Seconds
+            
             </div>
              `;
             document.getElementById('app').innerHTML = HTML;
@@ -126,7 +139,7 @@
                     let startTime = new Date().getTime();
                     tempStart = startTime;
                     selectedLampLight[index] = 'lightOn';
-                    selectedLampClick[index] = 'onclick=setTimeout(lightDiv,1),timer()';
+                    selectedLampClick[index] = 'onclick=setTimeout(lightDiv,500),timer()';
                 }
             }
             show()
@@ -144,6 +157,14 @@
             }
             show()
 
+        }
+        function startGame(){
+            if (counter == 0){
+                setTimeout(lightDiv, 400) 
+                counter++;
+                disableBtn='';
+            }
+            show()
         }
 
 
