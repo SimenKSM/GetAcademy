@@ -29,6 +29,8 @@
             font-family: 'Press Start 2P', cursive;
         }
 
+        
+
         .lamp {
             border-style: solid;
             border-radius: 50%;
@@ -53,12 +55,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-
+            user-select: none;
         }
 
         .lightOn {
             Opacity: 100%;
         }
+
         .lightoff {
             Opacity: 0%;
         }
@@ -149,14 +152,14 @@
                     disableClickTemp = index; // Lagrer indexen i disableClickTemp for også lett finne posisjonen i arrayet 
                     selectedLampLight[index] = 'lightOn'; // Øker opacity i den tilfeldig genererte indexen
                     selectedLampClick[index] = 'onmousedown=setTimeout(startAtRandom,randomTime),timer(),disableOnclick()'; // Gjør classen onclick og legger til 300-1000ms til neste class lyser opp
-                    
+
                     console.log(randomTime)
                 }
             }
             show()
         }
         // Skrur av lyset og fjerner onclick
-        function disableOnclick(){
+        function disableOnclick() {
             selectedLampLight[disableClickTemp] = 'lightOff'; // Skrur av lyset i classen
             selectedLampClick[disableClickTemp] = ''; // Setter onclicken til en tom string før loopen kjører igjen
             show()
@@ -168,7 +171,7 @@
             randomTime = Math.floor(Math.random() * (maxTime - minTime + 1) + minTime) // Nummer mellom 300-1000ms
             setTimeout(() => {
                 // Etter 300ms til 1000ms kjør denne koden
-                lightDiv(); 
+                lightDiv();
             }, randomTime);
         }
 
@@ -185,7 +188,7 @@
 
             show()
         }
-        
+
         // Starter spillet og disabler start knappen 
         function startGame() {
             if (counter == 0) { // Sjekker om counter = 0
