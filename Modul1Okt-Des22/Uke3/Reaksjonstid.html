@@ -28,14 +28,21 @@
         }
 
         .wrapper {
-           
-            justify-content: center;
+
             width: 600px;
             display: grid;
             grid-gap: 5px;
             grid-template-columns: repeat(5, 100px);
             grid-template-rows: repeat(5, 100px);
             grid-auto-flow: column;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
         }
 
         .lightOn {
@@ -54,6 +61,9 @@
         let tempStart = '';
         let tempStop = '';
         let spentSeconds = 0;
+        let tempScore = 0;
+        let highScore = 10;
+
 
         //View
         show()
@@ -61,9 +71,12 @@
         function show() {
             let HTML = '';
             HTML += /*HTML*/`
+            <div class='text'>
             <h3>Reaksjonsspill</h3>
             <h4>klikk så fort du klarer</h4>
+            </div>
             <div class='wrapper'>
+            
             <div class='lamp ${selectedLampLight[1]}'${selectedLampClick[1]} ></div> 
             <div class='lamp ${selectedLampLight[2]}'${selectedLampClick[2]}></div> 
             <div class='lamp ${selectedLampLight[3]}'${selectedLampClick[3]}></div>
@@ -90,8 +103,13 @@
             <div class='lamp ${selectedLampLight[24]}'${selectedLampClick[24]}></div> 
             <div class='lamp ${selectedLampLight[25]}'${selectedLampClick[25]}></div>
             </div>
+            <div class='text'>
+            
             <br>
-             ${spentSeconds} Seconds
+            CurrentClick: ${spentSeconds} Seconds
+            <br><br><br>
+            HighScore: ${highScore} Seconds
+            </div>
              `;
             document.getElementById('app').innerHTML = HTML;
 
@@ -107,7 +125,7 @@
                     let startTime = new Date().getTime();
                     tempStart = startTime;
                     selectedLampLight[index] = 'lightOn';
-                    selectedLampClick[index] = 'onclick=setTimeout(lightDiv,1000),timer()';
+                    selectedLampClick[index] = 'onclick=setTimeout(lightDiv,1),timer()';
                 }
             }
             show()
@@ -118,8 +136,15 @@
             tempStop = finishTime;
             spentMilliseconds = Math.floor(tempStop - tempStart);
             spentSeconds = spentMilliseconds / 1000
+            tempScore = spentSeconds;
+            if (highScore > tempScore) {
+                highScore = tempScore;
+
+            }
             show()
+
         }
+
 
 
 
