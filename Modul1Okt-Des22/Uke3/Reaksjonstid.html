@@ -18,15 +18,17 @@
             background-color: rgb(46, 46, 46);
             font-family: 'Press Start 2P', cursive;
         }
-        button{
-            
+
+        button {
+
             border: solid 4px;
             background-color: rgb(78, 78, 78);
-            height:50px;
-            width:150px;
+            height: 50px;
+            width: 150px;
             border-radius: 15px;
             font-family: 'Press Start 2P', cursive;
         }
+
         .lamp {
             border-style: solid;
             border-radius: 50%;
@@ -64,21 +66,23 @@
     <div id="app"></div>
     <script>
         //Model
-        let selectedLampIndex = 0;
-        let selectedLampLight = [];
-        let selectedLampClick = [];
-        let tempStart = '';
-        let tempStop = '';
-        let spentSeconds = 0;
-        let tempScore = 0;
-        let highScore = 10 || '';
-        let disableBtn='disabled';
-        let counter = 0;
-
+        let selectedLampIndex = 0; // Variabel hvor vi genererer et tilfeldig tall
+        let selectedLampLight = []; // Array for og fylle inn lightOn classen
+        let selectedLampClick = []; // Array for og putte inn onClick og tilfeldig timer
+        let tempStart = ''; // Lagrer new(date) tiden
+        let tempStop = ''; // Lagrer new(date) tiden
+        let spentSeconds = 0; // Variabel for og lagre tid brukt fra den lyser opp til man trykker
+        let tempScore = 0; // Temp variable for og lagre tiden og kontrollere om den er bedre enn highscore
+        let highScore = 10 || ''; // Variabel for og lagre highscore
+        let disableBtn = 'disabled'; // Variabel for og skru av button
+        let counter = 0; // Teller 
+        let minTime = 0; // ms
+        let maxTime = 0; // ms
+        let randomTime = 0;// Nummer mellom 300-1000ms
 
         //View
         show()
-        
+
         function show() {
             let HTML = '';
             HTML += /*HTML*/`
@@ -130,39 +134,60 @@
         }
 
         //Controller
+        //Får tilfeldig div til og lyse + resetter Arrayene etter man har klikket på korrekt Div
         function lightDiv() {
-            selectedLampLight = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-            selectedLampClick = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
-            selectedLampIndex = Math.floor((Math.random() * 25) + 1);
-            for (let index = 1; index < selectedLampLight.length; index++) {
-                if (index === selectedLampIndex) {
-                    let startTime = new Date().getTime();
-                    tempStart = startTime;
-                    selectedLampLight[index] = 'lightOn';
-                    selectedLampClick[index] = 'onclick=setTimeout(lightDiv,100),timer()';
+            selectedLampLight = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]; //Resetter Array så lightOn ikke blir lagret på indexplassen
+            selectedLampClick = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]; //Resetter Array så onClick ikke blir lagret på indexplassen
+            selectedLampIndex = Math.floor((Math.random() * 24) + 1); // Generer et tilfeldig tall mellom 1-24
+            for (let index = 1; index < selectedLampLight.length; index++) { //Looper igjennom LampLight Arrayet
+                if (index === selectedLampIndex) { // Slår ut om Index = det tilfeldig genererte tallet
+                    let startTime = new Date().getTime(); //Starter tidtakern for 
+                    tempStart = startTime; // Lagrer starttiden i en variabel
+                    disableClickTemp = index; // Lagrer indexen i disableClickTemp for også lett finne posisjonen i arrayet 
+                    selectedLampLight[index] = 'lightOn'; // Øker opacity i den tilfeldig genererte indexen
+                    selectedLampClick[index] = 'onclick=setTimeout(startAtRandom,randomTime),timer(),disableOnclick()'; // Gjør classen onclick og legger til 300-1000ms til neste class lyser opp
+                    
+                    console.log(randomTime)
                 }
             }
             show()
         }
-
-        function timer() {
-            var finishTime = new Date().getTime();
-            tempStop = finishTime;
-            spentMilliseconds = Math.floor(tempStop - tempStart);
-            spentSeconds = spentMilliseconds / 1000
-            tempScore = spentSeconds;
-            if (highScore > tempScore) {
-                highScore = tempScore;
-
-            }
+        // Fjerner Onclicken på classen
+        function disableOnclick(){ 
+            selectedLampClick[disableClickTemp] = ''; // Setter onclicken til en tom string før loopen kjører igjen
             show()
-
         }
-        function startGame(){
-            if (counter == 0){
-                setTimeout(lightDiv, 400) 
-                counter++;
-                disableBtn='';
+        // Etter mellom 300-1000ms, start neste lys
+        function startAtRandom() {
+            minTime = 300; // ms
+            maxTime = 1000; // ms
+            randomTime = Math.floor(Math.random() * (maxTime - minTime + 1) + minTime) // Nummer mellom 300-1000ms
+            setTimeout(() => {
+                // Etter 300ms til 1000ms kjør denne koden
+                lightDiv(); 
+            }, randomTime);
+        }
+
+        // Regner ut differansen mellomm startTime og Finishtime og lagrer kjappeste tid i highScore
+        function timer() {
+            let finishTime = new Date().getTime(); // 
+            tempStop = finishTime; // Lagrer Finishtime i tempStop variabelen
+            spentMilliseconds = Math.floor(tempStop - tempStart); // Regner ut differansen mellom tempStop og tempStart
+            spentSeconds = spentMilliseconds / 1000 // tar antall ms og deler på 1000 for og få en verdi i sekunder
+            tempScore = spentSeconds; // Lagrer sekundene i en tempvariabel
+            if (highScore > tempScore) { //Sjekker om highscore er lavere enn tempvariabelenen
+                highScore = tempScore; // Oppdaterer highscore hvis if highScore er lavere enn tempScore
+            }
+
+            show()
+        }
+        
+        // Starter spillet og disabler start knappen 
+        function startGame() {
+            if (counter == 0) { // Sjekker om counter = 0
+                setTimeout(lightDiv, 400) // Kjører LightDiv funksjonen etter 400 ms
+                counter++; // Setter counter til 1 
+                disableBtn = ''; // Disabler StartKnappen når counter = 1
             }
             show()
         }
