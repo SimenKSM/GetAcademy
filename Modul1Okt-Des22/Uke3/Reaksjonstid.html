@@ -148,7 +148,7 @@
                     tempStart = startTime; // Lagrer starttiden i en variabel
                     disableClickTemp = index; // Lagrer indexen i disableClickTemp for også lett finne posisjonen i arrayet 
                     selectedLampLight[index] = 'lightOn'; // Øker opacity i den tilfeldig genererte indexen
-                    selectedLampClick[index] = 'onclick=setTimeout(startAtRandom,randomTime),timer(),disableOnclick()'; // Gjør classen onclick og legger til 300-1000ms til neste class lyser opp
+                    selectedLampClick[index] = 'onmousedown=setTimeout(startAtRandom,randomTime),timer(),disableOnclick()'; // Gjør classen onclick og legger til 300-1000ms til neste class lyser opp
                     
                     console.log(randomTime)
                 }
