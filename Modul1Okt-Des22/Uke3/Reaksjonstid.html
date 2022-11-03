@@ -57,7 +57,10 @@
         }
 
         .lightOn {
-            Opacity: 100%
+            Opacity: 100%;
+        }
+        .lightoff {
+            Opacity: 0%;
         }
     </style>
 </head>
@@ -152,8 +155,9 @@
             }
             show()
         }
-        // Fjerner Onclicken på classen
-        function disableOnclick(){ 
+        // Skrur av lyset og fjerner onclick
+        function disableOnclick(){
+            selectedLampLight[disableClickTemp] = 'lightOff'; // Skrur av lyset i classen
             selectedLampClick[disableClickTemp] = ''; // Setter onclicken til en tom string før loopen kjører igjen
             show()
         }
