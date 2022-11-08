@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-gap: 1px;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            grid-auto-flow: column;
+        }
+
+        .cell {
+            height: 100px;
+            width: 100px;
+            background-color: bisque;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+
+        //Model
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let winningCombinations = [
+                     [0,1,2],
+                     [3,4,5],
+                     [6,7,8],
+                     [0,3,6],
+                     [1,4,7],
+                     [2,5,8],
+                     [0,5,8],
+                     [2,5,6],
+            ];
+        let PlayerO = '';
+        let randomValue = '';
+        let checkWinner = '';
+       
+
+        //View
+        show()
+        function show() {
+            let HTML = ``;
+            HTML += /*HTML*/`
+            ${showBoard()}
+            
+            
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+        //Controller
+        function showBoard() {
+            return `<div class="wrapper">
+                    <div onclick=setX(0) class='cell'>${board[0]}</div> 
+                    <div onclick=setX(1) class='cell'>${board[1]}</div>
+                    <div onclick=setX(2) class='cell'>${board[2]}</div>
+                    <div onclick=setX(3) class='cell'>${board[3]}</div>
+                    <div onclick=setX(4) class='cell'>${board[4]}</div>
+                    <div onclick=setX(5) class='cell'>${board[5]}</div>
+                    <div onclick=setX(6) class='cell'>${board[6]}</div>
+                    <div onclick=setX(7) class='cell'>${board[7]}</div>
+                    <div onclick=setX(8) class='cell'>${board[8]}</div>
+                    </div>
+             `;
+
+            show()
+        }
+        function setX(boardIndex) {
+            board[boardIndex] = 'X';
+            checkWinning('X har vunnet')
+            setRandomO()
+            checkWinning('O har Vunnet')
+            show()
+        }
+
+        function setRandomO() {
+            PlayerO = Array.from(board.keys()).filter(i => board[i] === '');
+            randomValue = PlayerO[Math.floor(PlayerO.length * Math.random())];
+            board[randomValue] = 'O'
+            show()
+        }
+
+
+        function checkWinning(vinner) {
+           
+        }
+    </script>
+
+</body>
+
+</html>
