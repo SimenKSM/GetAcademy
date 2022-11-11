@@ -34,9 +34,9 @@
                 <div class="box" style="background-color:${boxColor};"></div>
                 
             </div>
-            <button onclick="BrownYellow()">Brown / Yellow</button>
-            <button onclick="GreenBlue()">Green / Blue</button>
-            <button onclick="PinkRed()">Pink / Red</button>
+            <button onclick="changeColor('brown', 'yellow')">Brown / Yellow</button>
+            <button onclick="changeColor('Green', 'Blue')">Green / Blue</button>
+            <button onclick="changeColor('Pink', 'Red')">Pink / Red</button>
             
             
             `;
@@ -44,24 +44,13 @@
         }
 
         //Controller
-        function BrownYellow(){
-            containerColor = 'brown';
-            boxColor= 'yellow';
+        function changeColor(Container, box){
+            containerColor = Container;
+            boxColor= box;
             show()
 
         }
-        function GreenBlue(){
-            containerColor = 'Green';
-            boxColor= 'Blue';
-            show()
-
-        }
-        function PinkRed(){
-            containerColor = 'Pink';
-            boxColor= 'Red';
-            show()
-
-        }
+        
 
 
          
