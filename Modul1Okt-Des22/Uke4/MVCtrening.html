@@ -28,12 +28,15 @@
         show()
         function show(){
             let HTML = '';
-            HTML += `
-
+            HTML += /*HTML*/`
+            
             <div class="container" style="background-color:${containerColor};">
                 <div class="box" style="background-color:${boxColor};"></div>
                 
             </div>
+            <button onclick="BrownYellow()">Brown / Yellow</button>
+            <button onclick="GreenBlue()">Green / Blue</button>
+            <button onclick="PinkRed()">Pink / Red</button>
             
             
             `;
@@ -41,7 +44,22 @@
         }
 
         //Controller
-        function bgColor(){
+        function BrownYellow(){
+            containerColor = 'brown';
+            boxColor= 'yellow';
+            show()
+
+        }
+        function GreenBlue(){
+            containerColor = 'Green';
+            boxColor= 'Blue';
+            show()
+
+        }
+        function PinkRed(){
+            containerColor = 'Pink';
+            boxColor= 'Red';
+            show()
 
         }
 
