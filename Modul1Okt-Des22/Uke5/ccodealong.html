@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. En knapp som kaster en terning - gi ut et tall mellom 1 og 6. Sjekk med en console.log som kaller på funksjonen
+    2. Lag en funksjon som bruker forrige funksjon til å gjøre 5 kast (med loop)
+    3. Lagre alle tallene som blir kastet - vis disse på skjermen
+    4. Tell opp hvor mange 6'ere som er kastet og vis dette -->
+    <div id="app"></div>
+    <script>
+
+        //Model
+        let teller = 0;
+        let Kast = [];
+
+        //View
+
+        show()
+        function show() {
+            let HTML = '';
+            HTML += /*HTML*/`
+           
+           
+            <button onclick="throw2()">Random Number</button>
+            
+          `;
+            document.getElementById('app').innerHTML += HTML;
+        }
+
+        
+        //Controller
+        function test(){
+            let HTML= '';
+            for (let index = 0; index < Kast.length; index++) {
+                HTML += `<li>${Kast[index]}</li>`; 
+            }
+            document.getElementById('app').innerHTML += HTML;
+            console.log("testom unfker", HTML, document.getElementById('app').innerHTML)
+            show()
+            
+        }
+        function randNumber() {
+            return Math.floor(Math.random() * 6) + 1;
+            
+        }
+
+        // function throws(){
+        //     while (teller <= 5) {
+        //         randNumber();
+        //         teller++;
+        //         console.log(teller)
+        //     }
+        // }
+
+        function throw2() {
+            for (let index = 0; index <= 5; index++) {
+                Kast.push(randNumber())
+                if(randNumber() == 6){
+                    teller++;
+                }
+
+
+            }
+            test()
+            
+        }
+        
+
+
+
+
+    </script>
+
+</body>
+
+</html>

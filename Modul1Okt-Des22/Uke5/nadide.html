@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        //model
+        let numberOne = 0;
+        let numberTwo = 0;
+        let display = '';
+
+        //view
+        show()
+        function show() {
+            let HTML = '';
+            HTML += `
+            <button onclick="getNumbers()">test</button>
+            ${display}
+            
+            `;
+            document.getElementById("app").innerHTML = HTML;
+        }
+
+        //controller
+        
+        function getNumbers(){
+            numberOne = Math.floor(Math.random() * 1) + 1;
+            numberTwo = Math.floor(Math.random() * 1) + 1;
+            console.log(numberOne, numberTwo)
+            checkNumbers()
+            show()
+            
+
+        }
+        function checkNumbers(){
+            if (numberOne === numberTwo){
+                display = 'De er like'
+                }
+            else display = 'De er Ulike'
+            show()
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>
