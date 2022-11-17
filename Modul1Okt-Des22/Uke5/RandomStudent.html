@@ -1,80 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app"></div>
 
     <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
         button:active {
             color: rgb(59, 207, 84);
             cursor: pointer;
         }
+
+        .box {
+            width: 100px;
+            height: 100px;
+
+        }
     </style>
-    
+
     <script>
 
         //Model
         let Elever = [];
         let inputTxt = '';
         let displayVar = '';
-        let randomNumber= '';
-        let output='';
+        let randomNumber = '';
+        let output = '';
+        let removed = '';
 
 
         //View
         show()
-        function show(){
-            let HTML= '';
+        function show() {
+            let HTML = '';
             displayVar = '';
-            for(i = 0; i < Elever.length; i++){
+            for (i = 0; i < Elever.length; i++) {
                 displayVar += `<li>${Elever[i]}</li>`;
             }
-            
+
             HTML += /*HTML*/`
             <input onchange="changeinputTxt(this.value)"/>
             <button onclick="addStudent()">Add student</button>
             <button onclick="randomStudent()">Kast under bussen</button> <div>${output}</div>
-            <ul id="list">${displayVar}</ul>
+            <div class='box'>${displayVar}</div><div class='box'>${removed}</div> 
             
             
-            `;   
-            document.getElementById("app").innerHTML = HTML;     
-            
+            `;
+            document.getElementById("app").innerHTML = HTML;
+
         }
 
         //Controller
-        function changeinputTxt(inputValue){
+        function changeinputTxt(inputValue) {
             inputTxt = inputValue;
             console.log(inputTxt)
-            
-        } 
-        //<li></li>
-        function addStudent(){
+        }
+        function addStudent() {
             Elever.push(inputTxt);
-            inputTxt= "";
+            inputTxt = "";
             console.log(Elever)
-  
-        show();            
+            show();
         }
-        function randomStudent(){
-        randomNumber = Math.floor(Math.random() * Elever.length)
-            console.log(Elever[randomNumber]);
-        output = Elever[randomNumber];
-        Elever.splice(randomNumber, 1)
-        show();
+        function randomStudent() {
+            randomNumber = Math.floor(Math.random() * Elever.length)
+            removed = Elever.splice(randomNumber, 1)
+
+
+            console.log(randomNumber)
+            show();
         }
-        
-        
+
+
 
 
 
 
     </script>
-    
+
 </body>
+
 </html>
