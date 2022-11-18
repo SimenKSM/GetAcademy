@@ -13,10 +13,25 @@
 
     <style>
         body {
+            background-color: rgb(75, 72, 72);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .wrapper {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+            grid-gap: 1px;
+            grid-template-columns: 1fr 1fr 1fr 10fr;
         }
+
 
         button:active {
             color: rgb(59, 207, 84);
@@ -24,8 +39,10 @@
         }
 
         .box {
-            width: 100px;
-            height: 100px;
+            border: 2px solid black;
+            width: 200px;
+            height: 200px;
+            color: rgb(104, 168, 241);
 
         }
     </style>
@@ -36,9 +53,15 @@
         let Elever = [];
         let inputTxt = '';
         let displayVar = '';
+        let displayVar2 = '';
         let randomNumber = '';
         let output = '';
-        let removed = '';
+        let removedTemp = '';
+        let removed = [] || '';
+        var options = '';
+        let temp= '';
+
+
 
 
         //View
@@ -46,16 +69,40 @@
         function show() {
             let HTML = '';
             displayVar = '';
+            displayVar2 = '';
+            options = '';
             for (i = 0; i < Elever.length; i++) {
                 displayVar += `<li>${Elever[i]}</li>`;
             }
+            for (i = 0; i < removed.length; i++) {
+                displayVar2 += `<li>${removed[i]}</li>`;
+
+            }
+            for (var i = 0; i < Elever.length; i++) {
+                options += '<option value="' + Elever[i] + '">' + Elever[i] + '</option>';
+            }
 
             HTML += /*HTML*/`
-            <input onchange="changeinputTxt(this.value)"/>
-            <button onclick="addStudent()">Add student</button>
-            <button onclick="randomStudent()">Kast under bussen</button> <div>${output}</div>
-            <div class='box'>${displayVar}</div><div class='box'>${removed}</div> 
+            <div class="container">
+            <h3>Velg tilfeldig student</h3>
             
+            <form>
+            <input onchange="changeinputTxt(this.value)"/><br><br>
+            <button onclick="addStudent()">Legg til student</button>
+            <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
+            <select> <option value="volvo">Antall Tilfeldig Valgte Elever</option>
+                     <option onclick="randomStudents(1)" value="saab">1</option>
+                     <option onclick="randomStudents(2)" value="fiat">2</option>
+                     <option onclick="randomStudents(3)" value="audi">3</option>
+                     <option onclick="randomStudents(4) "value="audi">4</option>
+                     <option onclick="randomStudents(5) "value="audi">5</option>
+                
+            </select>
+            </form><br>
+            <div class="wrapper">
+            <div class='box'>${displayVar}</div><div class='box'>${displayVar2}</div> 
+            
+            </div>
             
             `;
             document.getElementById("app").innerHTML = HTML;
@@ -75,11 +122,17 @@
         }
         function randomStudent() {
             randomNumber = Math.floor(Math.random() * Elever.length)
-            removed = Elever.splice(randomNumber, 1)
-
-
-            console.log(randomNumber)
+            removedTemp = Elever.splice(randomNumber, 1)
+            removed.push(removedTemp)
+            removedTemp = '';
+            console.log(randomNumber, removedTemp, displayVar2)
             show();
+        }
+        function randomStudents(element){
+            temp = Elever.splice(randomNumber, element)
+            removed.push(temp)
+            show()
+
         }
 
 
