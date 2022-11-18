@@ -54,7 +54,7 @@
         let inputTxt = '';
         let displayVar = '';
         let displayVar2 = '';
-        let randomNumber = '';
+        randomNumber = Math.floor(Math.random() * Elever.length);
         let output = '';
         let removedTemp = '';
         let removed = [] || '';
@@ -90,12 +90,12 @@
             <input onchange="changeinputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
             <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
-            <select> <option value="volvo">Antall Tilfeldig Valgte Elever</option>
-                     <option onclick="randomStudents(1)" value="saab">1</option>
-                     <option onclick="randomStudents(2)" value="fiat">2</option>
-                     <option onclick="randomStudents(3)" value="audi">3</option>
-                     <option onclick="randomStudents(4) "value="audi">4</option>
-                     <option onclick="randomStudents(5) "value="audi">5</option>
+            <select onchange="randomStudents(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
+                     <option onchange="randomStudents(this.value)" value="1">1</option>
+                     <option onchange="randomStudents(this.value)" value="2">2</option>
+                     <option onchange="randomStudents(this.value)" value="3">3</option>
+                     <option onchange="randomStudents(this.value)" value="4">4</option>
+                     <option onchange="randomStudents(this.value)" value="5">5</option>
                 
             </select>
             </form><br>
@@ -129,8 +129,10 @@
             show();
         }
         function randomStudents(element){
-            temp = Elever.splice(randomNumber, element)
+            randomNumber = Math.floor(Math.random() * Elever.length);
+            temp = Elever.splice(randomNumber, element);
             removed.push(temp)
+            
             show()
 
         }
