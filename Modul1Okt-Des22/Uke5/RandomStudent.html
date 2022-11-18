@@ -78,9 +78,7 @@
                 displayVar2 += `<li>${removed[i]}</li>`;
 
             }
-            for (var i = 0; i < Elever.length; i++) {
-                options += '<option value="' + Elever[i] + '">' + Elever[i] + '</option>';
-            }
+           
 
             HTML += /*HTML*/`
             <div class="container">
@@ -90,12 +88,12 @@
             <input onchange="changeinputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
             <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
-            <select onchange="randomStudents(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
-                     <option onchange="randomStudents(this.value)" value="1">1</option>
-                     <option onchange="randomStudents(this.value)" value="2">2</option>
-                     <option onchange="randomStudents(this.value)" value="3">3</option>
-                     <option onchange="randomStudents(this.value)" value="4">4</option>
-                     <option onchange="randomStudents(this.value)" value="5">5</option>
+            <select onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
+                     <option onchange="repeat(this.value)" value="1">1</option>
+                     <option onchange="repeat(this.value)" value="2">2</option>
+                     <option onchange="repeat(this.value)" value="3">3</option>
+                     <option onchange="repeat(this.value)" value="4">4</option>
+                     <option onchange="repeat(this.value)" value="5">5</option>
                 
             </select>
             </form><br>
@@ -128,12 +126,12 @@
             console.log(randomNumber, removedTemp, displayVar2)
             show();
         }
-        function randomStudents(element){
-            randomNumber = Math.floor(Math.random() * Elever.length);
-            temp = Elever.splice(randomNumber, element);
-            removed.push(temp)
-            
-            show()
+       
+        function repeat(element){
+            for (let index = 0; index < element; index++) {
+                randomStudent()
+                
+            }
 
         }
 
