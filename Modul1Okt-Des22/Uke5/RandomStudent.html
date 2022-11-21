@@ -54,7 +54,7 @@
         let inputTxt = '';
         let displayVar = '';
         let displayVar2 = '';
-        randomNumber = Math.floor(Math.random() * Elever.length);
+        let randomNumber = Math.floor(Math.random() * Elever.length);
         let output = '';
         let removedTemp = '';
         let removed = [] || '';
@@ -85,15 +85,15 @@
             <h3>Velg tilfeldig Student</h3>
             
             <form>
-            <input onchange="changeinputTxt(this.value)"/><br><br>
+            <input  onchange="changeinputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
             <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
             <select onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
-                     <option onchange="repeat(this.value)" value="1">1</option>
-                     <option onchange="repeat(this.value)" value="2">2</option>
-                     <option onchange="repeat(this.value)" value="3">3</option>
-                     <option onchange="repeat(this.value)" value="4">4</option>
-                     <option onchange="repeat(this.value)" value="5">5</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
                 
             </select>
             </form><br>
@@ -106,7 +106,7 @@
             document.getElementById("app").innerHTML = HTML;
 
         }
-
+        
         //Controller
         function changeinputTxt(inputValue) {
             inputTxt = inputValue;
@@ -115,15 +115,16 @@
         function addStudent() {
             Elever.push(inputTxt);
             inputTxt = "";
-            console.log(Elever)
+            console.log(Elever);
             show();
         }
         function randomStudent() {
-            randomNumber = Math.floor(Math.random() * Elever.length)
-            removedTemp = Elever.splice(randomNumber, 1)
-            removed.push(removedTemp)
+            randomNumber = Math.floor(Math.random() * Elever.length);
+            removedTemp = Elever.splice(randomNumber, 1);
+            removed.push(removedTemp);
             removedTemp = '';
-            console.log(randomNumber, removedTemp, displayVar2)
+            
+            console.log(randomNumber, removedTemp, displayVar2);
             show();
         }
        
