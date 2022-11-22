@@ -14,7 +14,11 @@
     <style>
         body {
             background-color: rgb(75, 72, 72);
+            user-select: none;
+
+
         }
+
 
         .container {
             display: flex;
@@ -101,11 +105,13 @@
             </form><br>
             <div class="wrapper">
             <div class='box'>${displayVar}</div><div class='box'>${displayVar2}</div> 
-            
             </div>
+   
             
             `;
             document.getElementById("app").innerHTML = HTML;
+            document.getElementById("input").focus();
+            
 
         }
 
@@ -119,7 +125,7 @@
             inputTxt = "";
             console.log(Elever);
             show();
-            document.getElementById("input").focus();
+
         }
         function randomStudent() {
             randomNumber = Math.floor(Math.random() * Elever.length);
@@ -132,10 +138,13 @@
         function repeat(element) {
             for (let index = 0; index < element; index++) {
                 randomStudent()
+               
 
             }
 
         }
+        
+
 
 
 
