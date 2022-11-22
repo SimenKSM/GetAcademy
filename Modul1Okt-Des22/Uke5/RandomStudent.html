@@ -59,7 +59,7 @@
         let removedTemp = '';
         let removed = [] || '';
         var options = '';
-        let temp= '';
+        let temp = '';
 
 
 
@@ -78,22 +78,24 @@
                 displayVar2 += `<li>${removed[i]}</li>`;
 
             }
-           
+
 
             HTML += /*HTML*/`
             <div class="container">
-            <h3>Velg tilfeldig Student</h3>
+            <h2>VELG TILFELDIG STUDENT</h2>
             
             <form>
-            <input autofocus onchange="changeinputTxt(this.value)"/><br><br>
+            <input id="input" autofocus onchange="changeInputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
-            <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
-            <select  onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
+            <button onclick="randomStudent()">Trekk student</button> <br>${output}<br>
+            <select  onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Velg antall tilfeldige studenter</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
                      <option value="4">4</option>
                      <option value="5">5</option>
+                     <option value="5">6</option>
+                     <option value="5">7</option>
                 
             </select>
             </form><br>
@@ -106,9 +108,9 @@
             document.getElementById("app").innerHTML = HTML;
 
         }
-        
+
         //Controller
-        function changeinputTxt(inputValue) {
+        function changeInputTxt(inputValue) {
             inputTxt = inputValue;
             console.log(inputTxt)
         }
@@ -117,21 +119,20 @@
             inputTxt = "";
             console.log(Elever);
             show();
+            document.getElementById("input").focus();
         }
         function randomStudent() {
             randomNumber = Math.floor(Math.random() * Elever.length);
             removedTemp = Elever.splice(randomNumber, 1);
             removed.push(removedTemp);
             removedTemp = '';
-            
-            console.log(randomNumber, removedTemp, displayVar2);
             show();
         }
-       
-        function repeat(element){
+
+        function repeat(element) {
             for (let index = 0; index < element; index++) {
                 randomStudent()
-                
+
             }
 
         }
