@@ -85,10 +85,10 @@
             <h3>Velg tilfeldig Student</h3>
             
             <form>
-            <input  onchange="changeinputTxt(this.value)"/><br><br>
+            <input autofocus onchange="changeinputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
             <button onclick="randomStudent()">Velg student</button> <br>${output}<br>
-            <select onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
+            <select  onchange="repeat(this.value)"> <option onchange="randomStudents(this.value)">Antall Tilfeldig Valgte Elever</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
