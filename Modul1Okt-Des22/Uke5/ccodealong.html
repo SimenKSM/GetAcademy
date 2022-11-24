@@ -33,39 +33,25 @@
         show()
         function show() {
             let HTML = '';
-            HTML += /*HTML*/`
-           
-           
+            for (let index = 0; index < Kast.length; index++) {
+                HTML += `<li>${Kast[index]}</li> `;
+            }
+            HTML += /*HTML*/ `
             <button onclick="throw2()">Random Number</button>
             
-          `;
+            `;
             document.getElementById('app').innerHTML += HTML;
         }
 
         
         //Controller
-        function test(){
-            let HTML= '';
-            for (let index = 0; index < Kast.length; index++) {
-                HTML += `<li>${Kast[index]}</li>`; 
-            }
-            document.getElementById('app').innerHTML += HTML;
-            console.log("testom unfker", HTML, document.getElementById('app').innerHTML)
-            show()
-            
-        }
+       
         function randNumber() {
             return Math.floor(Math.random() * 6) + 1;
             
         }
 
-        // function throws(){
-        //     while (teller <= 5) {
-        //         randNumber();
-        //         teller++;
-        //         console.log(teller)
-        //     }
-        // }
+      
 
         function throw2() {
             for (let index = 0; index <= 5; index++) {
@@ -76,11 +62,17 @@
 
 
             }
-            test()
+            show()
             
         }
         
-
+  // function throws(){
+        //     while (teller <= 5) {
+        //         randNumber();
+        //         teller++;
+        //         console.log(teller)
+        //     }
+        // }
 
 
 

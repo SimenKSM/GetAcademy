@@ -19,7 +19,6 @@
 
         }
 
-
         .container {
             display: flex;
             flex-direction: column;
@@ -65,29 +64,23 @@
         var options = '';
         let temp = '';
 
-
-
-
         //View
         show()
         function show() {
             let HTML = '';
-            displayVar = '';
-            displayVar2 = '';
+            displayVar = ''; // Brukes for og vise frem elever Array
+            displayVar2 = ''; // Brukes for og vise frem de tilfeldig valgte elevene
             options = '';
-            for (i = 0; i < Elever.length; i++) {
+            for (i = 0; i < Elever.length; i++) { // Loopen som viser frem Elevene som kan trekkes i en liste
                 displayVar += `<li>${Elever[i]}</li>`;
             }
-            for (i = 0; i < removed.length; i++) {
+            for (i = 0; i < removed.length; i++) { // Loopen som viser frem elevene som er trukket ut
                 displayVar2 += `<li>${removed[i]}</li>`;
 
             }
-
-
             HTML += /*HTML*/`
             <div class="container">
             <h2>VELG TILFELDIG STUDENT</h2>
-            
             <form>
             <input id="input" autofocus onchange="changeInputTxt(this.value)"/><br><br>
             <button onclick="addStudent()">Legg til student</button>
@@ -98,59 +91,48 @@
                      <option value="3">3</option>
                      <option value="4">4</option>
                      <option value="5">5</option>
-                     <option value="5">6</option>
-                     <option value="5">7</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
                 
             </select>
             </form><br>
             <div class="wrapper">
             <div class='box'>${displayVar}</div><div class='box'>${displayVar2}</div> 
             </div>
-   
-            
-            `;
+             `;
             document.getElementById("app").innerHTML = HTML;
             document.getElementById("input").focus();
-            
-
         }
-
         //Controller
-        function changeInputTxt(inputValue) {
+        //Tar imot det som kommer i inputfeltet og lagrer dette i en variabel
+        function changeInputTxt(inputValue) { 
             inputTxt = inputValue;
             console.log(inputTxt)
         }
+        // Pusher Variabelene vi genererte inn i Elever Arrayet og Resetter Input Variabelen
         function addStudent() {
             Elever.push(inputTxt);
             inputTxt = "";
             console.log(Elever);
             show();
-
         }
-        function randomStudent() {
+        // Genererer et tilfeldig tall avhengig av lengden på elever arrayet
+        // Splicer også den tilfeldige indexen valgt ut av Elever Arrayet 
+        // Pusher Temp verdien inn i arrayet for elever som er trukket
+        // Refresher temp verdien så den er klar for ny elev ved onclick
+         function randomStudent() {
             randomNumber = Math.floor(Math.random() * Elever.length);
             removedTemp = Elever.splice(randomNumber, 1);
             removed.push(removedTemp);
             removedTemp = '';
             show();
         }
-
+        //Repeterer randomStudent funksjonen så mange ganger ifht antallet man får i parameteret
         function repeat(element) {
             for (let index = 0; index < element; index++) {
                 randomStudent()
-               
-
             }
-
         }
-        
-
-
-
-
-
-
-
     </script>
 
 </body>
