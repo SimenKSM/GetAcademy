@@ -104,18 +104,19 @@
             document.getElementById("input").focus();
         }
         //Controller
+
         //Tar imot det som kommer i inputfeltet og lagrer dette i en variabel
         function changeInputTxt(inputValue) { 
             inputTxt = inputValue;
-            console.log(inputTxt)
         }
+
         // Pusher Variabelene vi genererte inn i Elever Arrayet og Resetter Input Variabelen
         function addStudent() {
             Elever.push(inputTxt);
             inputTxt = "";
-            console.log(Elever);
             show();
         }
+
         // Genererer et tilfeldig tall avhengig av lengden på elever arrayet
         // Splicer også den tilfeldige indexen valgt ut av Elever Arrayet 
         // Pusher Temp verdien inn i arrayet for elever som er trukket
@@ -127,6 +128,7 @@
             removedTemp = '';
             show();
         }
+        
         //Repeterer randomStudent funksjonen så mange ganger ifht antallet man får i parameteret
         function repeat(element) {
             for (let index = 0; index < element; index++) {
