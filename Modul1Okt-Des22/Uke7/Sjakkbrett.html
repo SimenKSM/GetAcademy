@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(8, 100px);
+        }
+
+        .whitePiece {
+            color: white;
+            text-shadow: 1px 1px gray;
+        }
+
+        .blackPiece {
+            color: black;
+        }
+
+        .lightSquare,
+        .darkSquare {
+            font-size: 450%;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .lightSquare {
+            background-color: rgb(240, 217, 181);
+        }
+
+        .darkSquare {
+            background-color: rgb(181, 136, 99);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board">
+        <script>
+
+            //Model
+
+            //vieww
+            show()
+            function show() {
+                let HTML = '';
+                HTML += /*HTML*/`
+      
+
+        ${lastRow("darkSquare", "lightSquare", "blackPiece")}
+        ${lightRowBlackPieces("darkSquare", "lightSquare", "blackPiece", "♟")}
+        ${lightRowBlackPieces("lightSquare","darkSquare" , "", "")}
+        ${lightRowBlackPieces("darkSquare","lightSquare" , "", "")}
+        ${lightRowBlackPieces("lightSquare","darkSquare" , "", "")}
+        ${lightRowBlackPieces("darkSquare","lightSquare" , "", "")}
+        ${lightRowBlackPieces("lightSquare","darkSquare" , "whitePiece", "♟")}
+        ${lastRow("lightSquare", "darkSquare", "whitePiece")}
+        
+        
+            
+            `;
+                document.getElementById("board").innerHTML = HTML;
+
+            }
+
+            //Controller
+           
+            function lightRowBlackPieces(darkSquare, lightSquare, piececolor, pieces ){
+                return `<div class="${darkSquare} ${piececolor}">${pieces}</div>
+                        <div class="${lightSquare} ${piececolor}">${pieces}</div>
+                        <div class="${darkSquare} ${piececolor}">${pieces}</div>
+                        <div class="${lightSquare} ${piececolor}">${pieces}</div>
+                        <div class="${darkSquare} ${piececolor}">${pieces}</div>
+                        <div class="${lightSquare} ${piececolor}">${pieces}</div>
+                        <div class="${darkSquare} ${piececolor}">${pieces}</div>
+                        <div class="${lightSquare} ${piececolor}">${pieces}</div>
+                
+                `
+            }
+
+            function lastRow (darkSquare, lightSquare, piececolor){
+        	    return `<div class="${lightSquare} ${piececolor}">♜</div>
+                        <div class="${darkSquare} ${piececolor}">♞</div>
+                        <div class="${lightSquare} ${piececolor}">♝</div>
+                        <div class="${darkSquare} ${piececolor}">♛</div>
+                        <div class="${lightSquare} ${piececolor}">♚</div>
+                        <div class="${darkSquare} ${piececolor}">♝</div>
+                        <div class="${lightSquare} ${piececolor}">♞</div>
+                        <div class="${darkSquare} ${piececolor}">♜</div>`
+            }
+
+            
+       
+
+       
+
+        </script>
+
+    </div>
+</body>
+
+</html>

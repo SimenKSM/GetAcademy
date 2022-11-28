@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+</body>
+<div id="app"></div>
+
+
+
+<script>
+    //Model
+let tallet = 0
+let kidTicket = '';
+let adultTicket = '';
+let kidT = 50;
+let adultT = 100;
+let fortjeneste = '';
+let colorText = 'red';
+let sizeText = 20;
+let colorBackground = 'blue';
+let changeText = 'Jaja';
+
+
+    //View
+    show()
+    function show() {
+        let HTML = '';
+        HTML += /*HTML*/`
+        ${tallet}
+         ${kidTicket}<- Barnebiletter ${adultTicket} <- Voksenbiletter
+        <button onclick='plusseFunksjon()'> Pluss tall </button>
+        <button onclick='minusFunksjon()'> Minus tall </button>'
+        <br><br>
+        <input onchange = 'ticket(this.value)'> 
+        ${multiply()}
+        
+        <h5 style="color: ${colorText}; font-size: ${sizeText}px; background-color: ${colorBackground};">${changeText}</h5>
+        <button onclick="changeHeader('green', 50, 'blue', 'Endret med parameter')">test</button>
+        <button onclick="createHeader('pink', 50, 'green', 'Endret med parameter')">test2</button>
+        ${createHeader('pink', 50, 'yellow', 'Endret med parameter')}
+       
+    
+    `;
+        document.getElementById('app').innerHTML = HTML;
+    }
+
+    //Controller
+    function plusseFunksjon() {
+    tallet++;
+    show();
+    }
+
+    function minusFunksjon() {
+        tallet--;
+        show();
+    }
+
+    function ticket (element){
+        if (element > 16) {
+            adultTicket++;
+        } else kidTicket ++;
+        console.log(adultTicket, 'voksenbillett')
+        console.log(kidTicket, 'barnebillett')
+        show()
+    }
+    
+    function multiply () {
+        fortjeneste = (kidTicket * kidT)  + (adultTicket * adultT)
+        return fortjeneste;
+    
+    }
+
+    function changeHeader(textColor, textSize, backgroundColor, textChange) {
+        colorText = textColor;
+        sizeText = textSize;
+        colorBackground = backgroundColor;
+        changeText = textChange;
+        show();
+    }
+
+    function createHeader (textColor, textSize, backgroundColor, textChange) {
+        return `<h5 style="color: ${textColor}; ${createHeaderFont(textSize)} ${creatBackGroundColor(backgroundColor)};">${textChange}</h5>`
+    }
+    function createHeaderFont(textSize) {
+            return ` font-size: ${textSize}px;`;
+
+        }
+    function creatBackGroundColor(backgroundColor){
+        return ` background-color: ${backgroundColor}`
+    }
+</script>
+
+</html>

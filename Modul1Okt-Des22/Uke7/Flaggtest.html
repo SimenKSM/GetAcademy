@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #flagg {
+            display: grid;
+            grid-template-columns: repeat(22, 50px);
+            grid-template-rows: repeat(16, 50px);
+        }
+
+        .red {
+            background-color: #BA0C2F;
+        }
+
+        .blue {
+            background-color: #00205B;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flagg">
+        <script>
+            //Model
+
+            //View
+            show()
+            function show() {
+                let HTML = '';
+                HTML += /*HTML*/`
+      
+        ${startRows("red", "blue",).repeat(6)}
+        ${startRows("", "blue",)}
+        ${startRows("blue", "blue", "blue") .repeat(2)}
+        ${startRows("", "blue",)}
+        ${startRows("red", "blue", "") .repeat(6)}
+
+
+       
+                
+                `;
+                document.getElementById("flagg").innerHTML = HTML;
+            }
+
+            //Controller
+            function startRows(color1, color2, color3) {
+                return `<div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color3}"></div>
+                        <div class="${color2}"></div>
+                        <div class="${color2}"></div>
+                        <div class="${color3}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>
+                        <div class="${color1}"></div>`;
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>
