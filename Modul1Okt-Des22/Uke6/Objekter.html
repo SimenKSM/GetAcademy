@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //Model
+        const cars = [
+            {
+                make: "Dodge",
+                model: ["Challenger", "Charger", "Viper"]
+            },
+            {
+                make: "Ford",
+                model: ["Mustang", "Mondeo",]
+            },
+            {
+                make: "Volkswagen",
+                model: ["Touran", "Caddy", "Passat"]
+            }
+        ];
+        const salesPersons = [
+            {
+                name: "Per",
+                carTypes: ["Challenger", "Ford"]
+            },
+            {
+                name: "Pål",
+                carTypes: ["Ford"]
+            },
+            {
+                name: "Espen",
+                carTypes: ["Dodge", "Volkswagen"]
+            }
+        ]
+
+
+
+        //View
+        show()
+        function show() {
+            let HTML = '';
+            HTML += `
+            
+            `;
+            document.getElementById('app').innerHTML = HTML;
+        }
+
+
+        //Controller
+
+    </script>
+
+</body>
+
+</html>
