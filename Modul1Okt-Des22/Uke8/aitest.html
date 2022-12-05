@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var dot = document.createElement('div');
+dot.style.position = 'absolute';
+dot.style.width = '10px';
+dot.style.height = '10px';
+dot.style.backgroundColor = 'red';
+dot.style.borderRadius = '5px';
+dot.style.top = Math.random() * window.innerHeight + 'px';
+dot.style.left = Math.random() * window.innerWidth + 'px';
+document.body.appendChild(dot);
+var startTime = new Date();
+dot.addEventListener('click', function() {
+  var endTime = new Date();
+  var timeTaken = endTime - startTime;
+  alert('You took ' + timeTaken + ' milliseconds to click the dot!');
+  document.body.removeChild(dot);
+});
+
+
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
