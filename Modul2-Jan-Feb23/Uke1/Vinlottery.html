@@ -1,29 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app"></div>
     <script>
         //model
+        let ansatte = ["PER", "PÅL", "PÅSAN"];
+        let inputText = '';
+        let randomNumber = Math.floor(Math.random() * ansatte.length);
+        let winner = [];
+        let winnerTemp = '';
 
         //view
-        let HTML = '';
-        HTML += /*HTML*/`
-        
+        show()
+        function show() {
+            let HTML = '';
+            displayVar = '';
+            displayVar2 = '';
+            for (let i = 0; i < ansatte.length; i++) {
+                index = i;
+                displayVar += `<li>${ansatte[i]} <button onclick="removePerson(${index})">✖</li>`
+
+            }
+            for (let i = 0; i < winner.length; i++) {
+                displayVar2 += `<li>${winner[i]} </li>`
+
+            }
+            HTML += /*HTML*/`
+        <h3>Ansatte</h3>
+        ${displayVar}<br>
+        <form>
+        <input id="input" autofocus onchange="recieveInput(this.value)">
+        <button onclick="addPerson()">Legg til person</button>
+        <button onclick="randomWinner()">Trekk vinner</button>
+        </form><br>
+        <h1>Vinnere</h1>
+        ${displayVar2}<br>
+        <select onchange="repeat(this.value)"> <option onchange="randomWinner(this.value)">Velg Antall Vinnere</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+
+      
         
         
         `
-        document.getElementById("app").innerHTML = HTML;
-
+            document.getElementById("app").innerHTML = HTML;
+            document.getElementById("input").focus();
+        }
         //controller
+        function repeat(element){
+            for (let index = 0; index < element; index++) {
+               randomWinner()
+                
+            }
+        }
+        function removePerson(element) {
+            ansatte.splice(element, 1)
+            show()
+        }
 
-        
+        function recieveInput(inputValue) {
+            inputText = inputValue.toUpperCase();
+
+        }
+        function addPerson() {
+            ansatte.push(inputText)
+            inputText = '';
+            show()
+        }
+
+        function randomWinner() {
+            randomNumber = Math.floor(Math.random() * ansatte.length);
+            winnerTemp = ansatte.splice(randomNumber, 1)
+            winner.push(winnerTemp)
+            winnerTemp = '';
+            show()
+        }
+
+
     </script>
-    
+
 </body>
+
 </html>

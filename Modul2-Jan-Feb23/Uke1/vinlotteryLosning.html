@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="css/vinlotterix.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div class="page" :class="showMenu ? '' : 'pageUtenMeny'" id="page">
+        <div class="header" id="header">
+            <button @click="visOgSkjulMeny" class="knapp">☰</button> Vinlotterix 🍷
+        </div>
+        <div v-if="currentPage == 'personer'" class="innhold" id="innhold">
+            <table>
+                <tr>
+                    <td>
+                        <input type="checkbox" v-model="personer.velgAlle"
+                               @click="velgAlleEllerIngen" />
+                    </td>
+                    <td><b>Personer</b></td>
+                    <td></td>
+                </tr>
+                <tr v-for="person in personer.liste">
+                    <td>
+                        <input type="checkbox" v-model="person.erValgt" />
+                    </td>
+                    <td>{{person.navn}}</td>
+                    <td><button class="litenKnapp" @click="slettPerson(person.id)">x</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="3">
+                        <input size="6" type="text" v-model="personer.nyPerson" />
+                        <button class="litenKnapp" @click="leggTilPerson">legg til person</button>
+                    </td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td colspan="3">
+                        <button class="knapp" @click="trekk">Trekk!</button>
+                        <input type="number" size="1" v-model="personer.trekkAntall" />
+                        <button class="" @click="personer.trekkAntall++">▲</button>
+                        <button class="" @click="personer.trekkAntall = Math.max(1,personer.trekkAntall -1)">▼</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div v-else-if="currentPage == 'trekninger'" class="innhold" id="innhold">
+            <p v-for="(trekning, i) in trekninger">
+                <small>
+                    {{dagsNavn[new Date(trekning.tid).getDay()]}}
+                    {{lagDatoTekstForVisning(new Date(trekning.tid))}}
+                </small><br />
+                <b  :class="'førsteTrekning' + i ">
+                    {{trekning.vinnere.length === 1 ? 'Vinneren' : 'Vinnerne'}}
+                    er {{lagTekstListe(trekning.vinnere)}}!
+                </b><br />
+                <small>
+                    Trukket fra totalt {{trekning.deltakere.length}} personer:
+                    {{lagTekstListe(trekning.deltakere)}}
+                </small>
+            </p>
+        </div>
+        <div v-if="showMenu" class="meny" id="meny">
+            <button class="knapp fixed" @click="currentPage = 'personer'">Personer</button><br />
+            <button class="knapp fixed" @click="currentPage = 'trekninger'">Trekninger</button><br />
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#page',
+            data: {
+                showMenu: true,
+                currentPage: 'personer',
+                personer: {
+                    nyPerson: '',
+                    velgAlle: false,
+                    trekkAntall: 1,
+                    liste: [
+                        { id: 100, navn: 'Per', erValgt: true },
+                        { id: 101, navn: 'Pål', erValgt: true },
+                        { id: 102, navn: 'Espen', erValgt: false },
+                        { id: 103, navn: 'Ole', erValgt: true },
+                    ]
+                },
+                trekninger: [
+                    {
+                        vinnere: ['Ole'],
+                        tid: '2018-10-17 17:10',
+                        deltakere: ['Per', 'Pål', 'Ole']
+                    }
+                    , {
+                        vinnere: ['Per', 'Pål', 'Knut'],
+                        tid: '2018-10-11 17:10',
+                        deltakere: ['Per', 'Pål', 'Ole', 'Knut', 'Gunnar']
+                    }
+                ],
+                dagsNavn: ['søndag', 'mandag', 'tirsdag', 'onsdag', 'torsdag', 'fredag', 'lørdag']
+            },
+            methods: {
+                visOgSkjulMeny: function () {
+                    this.showMenu = !this.showMenu;
+                },
+                lagTekstListe: function (liste) {
+                    if (liste.length === 0) return '';
+                    if (liste.length === 1) return liste[0];
+
+                    const tekstListe = liste.join(', ');
+                    const indexSisteKomma = tekstListe.lastIndexOf(',');
+                    return tekstListe.substr(0, indexSisteKomma)
+                        + ' og ' + tekstListe.substr(indexSisteKomma + 1);
+                },
+                lagDatoTekstForVisning: function (dato) {
+                    return dato.toLocaleString().replace(',', '').substr(0, 15);
+                },
+                lagDatoTekstForLagring: function (dato) {
+                    return dato.toISOString().substr(0, 16).replace('T', ' ');
+                },
+                lagDatoTekstNåForLagring: function () {
+                    return this.lagDatoTekstForLagring(new Date());
+                },
+                velgAlleEllerIngen: function () {
+                    let verdi = !this.personer.velgAlle;
+                    for (let person of this.personer.liste) {
+                        person.erValgt = verdi;
+                    }
+                },
+                slettPerson: function (id) {
+                    let index = this.personer.liste.findIndex((p => p.id === id));
+                    if (index == -1) return;
+                    this.personer.liste.splice(index, 1);
+                },
+                leggTilPerson: function () {
+                    const id = this.personer.liste
+                        .map(p => p.id).reduce((max, value) => Math.max(max, value), -1) + 1;
+                    this.personer.liste
+                        .push({ id: id, navn: this.personer.nyPerson, erValgt: true });
+                },
+                trekk: function () {
+                    console.log('trekk');
+                    let antall = this.personer.trekkAntall;
+                    const personerListe = this.personer.liste.filter(p => p.erValgt);
+                    const indekser = Array.from(personerListe.keys());
+                    const vinnere = [];
+                    while (antall-- > 0 && indekser.length > 0) {
+                        const tilfeldigIndeks = Math.floor(Math.random() * indekser.length);
+                        const indeks = indekser.splice(tilfeldigIndeks, 1);
+                        vinnere.push(personerListe[indeks].navn);
+                    }
+                    this.trekninger.unshift({
+                        vinnere: vinnere,
+                        tid: this.lagDatoTekstNåForLagring(),
+                        deltakere: personerListe.map(p => p.navn)
+                    });
+                    this.currentPage = 'trekninger';
+                }
+            }
+        })
+    </script>
+</body>
+</html>
