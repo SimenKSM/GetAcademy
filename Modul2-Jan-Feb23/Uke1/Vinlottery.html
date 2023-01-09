@@ -48,7 +48,7 @@
         <input id="input" autofocus onchange="recieveInput(this.value)">
         <button onclick="addPerson()">Legg til person</button>
         <button onclick="randomWinner()">Trekk Tilfeldig Vinner</button>
-        <select onchange="repeat(this.value)"> <option onchange="randomWinner(this.value)">Trekk Flere Tilfeldige Vinnere</option>
+        <select onchange="repeat(this.value)"> <option onchange="randomWinner()">Trekk Flere Tilfeldige Vinnere</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
@@ -90,6 +90,7 @@
         }
 
         function randomWinner() {
+            randomNumber = Math.floor(Math.random() * ansatte.length);
             winnerTemp = ansatte.splice(randomNumber, 1)
             if (winnerTemp != "")
                 winner.push(winnerTemp)
