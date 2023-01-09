@@ -98,6 +98,7 @@
 
         function randomWinner() {
             winnerTemp = ansatte.splice(randomNumber, 1)
+            if (winnerTemp != "")
             winner.push(winnerTemp)
             winnerTemp = '';
             show()
