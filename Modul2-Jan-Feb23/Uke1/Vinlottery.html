@@ -17,6 +17,14 @@
         let randomNumber = Math.floor(Math.random() * ansatte.length);
         let winner = [];
         let winnerTemp = '';
+        let now = '';
+        let lastWinner = [
+            {
+                name: "",
+                timeStamp: "",
+                
+            }
+        ]
 
         //view
         show()
@@ -39,11 +47,10 @@
         <form>
         <input id="input" autofocus onchange="recieveInput(this.value)">
         <button onclick="addPerson()">Legg til person</button>
-        <button onclick="randomWinner()">Trekk vinner</button>
-        </form><br>
-        <h1>Vinnere</h1>
-        ${displayVar2}<br>
-        <select onchange="repeat(this.value)"> <option onchange="randomWinner(this.value)">Velg Antall Vinnere</option>
+        <button onclick="randomWinner()">Trekk Tilfeldig Vinner</button>
+        
+        
+        <select onchange="repeat(this.value)"> <option onchange="randomWinner(this.value)">Trekk Flere Tilfeldige Vinnere</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
                      <option value="3">3</option>
@@ -51,8 +58,15 @@
                      <option value="5">5</option>
                      <option value="6">6</option>
                      <option value="7">7</option>
+                     </select>
+                    
+        
+        
+                     <h1>Vinnere</h1>
+                     ${displayVar2}<br>
 
-      
+        <button onclick="earlierWinners()">Vis tidligere vinnere</button>
+
         
         
         `
@@ -60,10 +74,10 @@
             document.getElementById("input").focus();
         }
         //controller
-        function repeat(element){
+        function repeat(element) {
             for (let index = 0; index < element; index++) {
-               randomWinner()
-                
+                randomWinner()
+
             }
         }
         function removePerson(element) {
@@ -76,19 +90,26 @@
 
         }
         function addPerson() {
+            if (inputText != "")
             ansatte.push(inputText)
             inputText = '';
             show()
         }
 
         function randomWinner() {
-            randomNumber = Math.floor(Math.random() * ansatte.length);
             winnerTemp = ansatte.splice(randomNumber, 1)
             winner.push(winnerTemp)
             winnerTemp = '';
             show()
         }
+        function getTimeStamp() {
+            now = new Date();
+            return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':'
+                + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())) + ':' + ((now.getSeconds() < 10) ? ("0" + now
+                    .getSeconds()) : (now.getSeconds())));
 
+            show()
+        }
 
     </script>
 
