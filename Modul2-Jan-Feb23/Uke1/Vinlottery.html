@@ -22,7 +22,7 @@
             {
                 name: "",
                 timeStamp: "",
-                
+
             }
         ]
 
@@ -48,8 +48,6 @@
         <input id="input" autofocus onchange="recieveInput(this.value)">
         <button onclick="addPerson()">Legg til person</button>
         <button onclick="randomWinner()">Trekk Tilfeldig Vinner</button>
-        
-        
         <select onchange="repeat(this.value)"> <option onchange="randomWinner(this.value)">Trekk Flere Tilfeldige Vinnere</option>
                      <option value="1">1</option>
                      <option value="2">2</option>
@@ -59,15 +57,10 @@
                      <option value="6">6</option>
                      <option value="7">7</option>
                      </select>
-                    
-        
-        
                      <h1>Vinnere</h1>
                      ${displayVar2}<br>
 
         <button onclick="earlierWinners()">Vis tidligere vinnere</button>
-
-        
         
         `
             document.getElementById("app").innerHTML = HTML;
@@ -91,7 +84,7 @@
         }
         function addPerson() {
             if (inputText != "")
-            ansatte.push(inputText)
+                ansatte.push(inputText)
             inputText = '';
             show()
         }
@@ -99,7 +92,7 @@
         function randomWinner() {
             winnerTemp = ansatte.splice(randomNumber, 1)
             if (winnerTemp != "")
-            winner.push(winnerTemp)
+                winner.push(winnerTemp)
             winnerTemp = '';
             show()
         }
