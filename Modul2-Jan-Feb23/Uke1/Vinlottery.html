@@ -20,27 +20,31 @@
         let now = '';
         let lastWinner = [
             {
-                name: "",
-                timeStamp: "",
+                name: "test",
+                timeStamp: "test",
 
             }
         ]
-
+       let displayVar3 = '';
+        
+        
         //view
         show()
         function show() {
             let HTML = '';
             displayVar = '';
             displayVar2 = '';
+           
             for (let i = 0; i < ansatte.length; i++) {
                 index = i;
                 displayVar += `<li>${ansatte[i]} <button onclick="removePerson(${index})">✖</li>`
 
             }
-            for (let i = 0; i < winner.length; i++) {
-                displayVar2 += `<li>${winner[i]} </li>`
+            for (let j = 0; j < winner.length; j++) {
+                displayVar2 += `<li>${winner[j]} </li>`
 
             }
+            
             HTML += /*HTML*/`
         <h3>Ansatte</h3>
         ${displayVar}<br>
@@ -59,14 +63,27 @@
                      </select>
                      <h1>Vinnere</h1>
                      ${displayVar2}<br>
+                     
 
         <button onclick="earlierWinners()">Vis tidligere vinnere</button>
+        ${displayVar3}
+        `;
+       
         
-        `
+
             document.getElementById("app").innerHTML = HTML;
             document.getElementById("input").focus();
         }
+        
         //controller
+        function earlierWinners(){
+            for (let index = 0; index < lastWinner.length; index++) {
+                displayVar3 += `<li>${lastWinner[index]} </li>`
+                
+            }
+        }
+       
+
         function repeat(element) {
             for (let index = 0; index < element; index++) {
                 randomWinner()
