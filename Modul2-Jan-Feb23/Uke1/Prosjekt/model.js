@@ -8,60 +8,32 @@ const model = {
     },
     // Input Felter til hver side
     inputs: {
-        surveyTitle: "",
-        questionTitle: "",
-        choisesText: ["har du spist pizza?", "", ""], // hvis man trykker på legg til, blir det lagt til ett felt til i arrayet
-        selfDefined: false,
-        date: '',
-        time: '',
-        stopSurvey: false,
-    }
-    // generatorPage: { //Skal vi lage Generatorpage og Surveypage // eller bør alle inputs bare ligge her uten at de ligger i et objekt for en spesifikk side.
-    //     questionArray: [
-    //         {
-    //             questionText: 'Spørsmål A',
-    //         },
-    //     ],
-    //     question: '',
+        surveyTitle: "", // Overskrift på meningsmålingen
+        questionTitle: "", //Legge til spørsmålstekst
+        choicesText: ["", "", ""], // hvis man trykker på legg til, blir det lagt til ett felt til i arrayet
+        selfDefined: false, // Boolean for og velge om egendefinerte svar er aktivert
+        selfDefinedText: '', // inputfeltet for svaret til sluttbrukeren
+        date: '', // Dato tid for og avsluttte
+        time: '', // Dato tid for og avsluttte
+        stopSurvey: false, // Boolean som bestemmer om meningsmålingen er aktiv lenger
+    },
 
-    //     selfDefined: {
-    //         isChecked: false,
-    //         admincomment: 'Kommentar til egendefinert svar',
-
-    //     },
-
-    //     isOver: {
-
-
-    //     },
-    // },
-    // //Korrekt måte og sette opp dette, trengs det array (Fordeler / Ulemper ved om brukere kan velge flere alternativ og hva er best practice om det er tillat)
-    // surveyPage: {
-    //     chosenAnswerID: '',
-    //     userComment: 'Hva brukeren svarte',
-    // },
-
-    // // Hva er riktig og gjøre her tenker lærer? Skal dette ligge i data / controller funksjon, burde det gjøres om en til knapp fra en select?
-    // resultPage: {
-
-    // },
-    ,
     //Data
-    surveyData: [
+    surveyData:  [
         {
-            surveyId: 1,
-            isSelfDefined: false,
-            isActive: true,
-            title: 'Placeholder Tittel på meningsmålingen',
-            endDate: 'Placeholder Sluttdato om det er valgt',
+            surveyId: 1, // ID på meningsmålingen
+            isSelfDefined: false, // Boolean som bestemmer om egendefinerte svar er aktiv
+            isActive: true, // Boolean som bestemmer om meningsmålgingen er aktiv
+            title: 'Placeholder Tittel på meningsmålingen', // tittel på meningsmålingen
+            endDate: 'Placeholder Sluttdato om det er valgt', // Sluttdato for meningsmålingen
             surveyQuestions: [
                 {
-                    questionID: 1,
-                    voteNo: null,
-                    questionText: 'Placeholder SpørsmålText',
-                    preDefinedAnswers: [
+                    questionID: 1, // Spørsmåls ID
+                    voteNo: 0, // Antall stemmer 
+                    questionText: 'Placeholder SpørsmålText', // Spørsmåls tekst
+                    preDefinedAnswers: [ // Array for og pushe egendefinerte svar
                         {
-                            answerText: 'Placeholder Egendefinert Svar'
+                            answerText: 'Placeholder Egendefinert Svar' // De egendefinerte svarene fra brukeren
                         }
                     ],
 
@@ -71,6 +43,7 @@ const model = {
             ],
         },
     ],
+},
     // alt SurveyData
     /* 
     surveyData: [
@@ -119,4 +92,34 @@ const model = {
         },
     ],
  */
-};
+
+// generatorPage: { //Skal vi lage Generatorpage og Surveypage // eller bør alle inputs bare ligge her uten at de ligger i et objekt for en spesifikk side.
+    //     questionArray: [
+    //         {
+    //             questionText: 'Spørsmål A',
+    //         },
+    //     ],
+    //     question: '',
+
+    //     selfDefined: {
+    //         isChecked: false,
+    //         admincomment: 'Kommentar til egendefinert svar',
+
+    //     },
+
+    //     isOver: {
+
+
+    //     },
+    // },
+    // //Korrekt måte og sette opp dette, trengs det array (Fordeler / Ulemper ved om brukere kan velge flere alternativ og hva er best practice om det er tillat)
+    // surveyPage: {
+    //     chosenAnswerID: '',
+    //     userComment: 'Hva brukeren svarte',
+    // },
+
+    // // Hva er riktig og gjøre her tenker lærer? Skal dette ligge i data / controller funksjon, burde det gjøres om en til knapp fra en select?
+    // resultPage: {
+
+    // },
+    
