@@ -14,8 +14,8 @@ const model = {
     },
 
     options:[ 
-        {text: 'Bra', color: 'green'},
-        {text: 'Middels', color: 'blue'},
-        {text: 'Dårlig', color: 'yellow'},
+        {text: 'Bra', color: 'green', },
+        {text: 'Middels', color: 'blue', },
+        {text: 'Dårlig', color: 'yellow', },
     ],
 };
