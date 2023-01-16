@@ -8,5 +8,5 @@ function vote(index){
         option.voteCount = 0;
     }
     option.voteCount++;
-    updateView()
+    updateView();
 }
