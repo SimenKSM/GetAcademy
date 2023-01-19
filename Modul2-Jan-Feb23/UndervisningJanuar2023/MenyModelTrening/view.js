@@ -43,9 +43,11 @@ function makeMenuBoxes() {
         let id = "app" + (i + 1)
         pageIndex = i
         html += `<div id="${id}" class="box " onclick="selectMenuOption(${pageIndex})"></div>`;
-        console.log(model.menuList[i])
+        
+        
+        
     }
-
+    
     return html;
 }
 
@@ -80,7 +82,7 @@ function toggleClaslistOnMenu() {
         
     }
     model.menuListIsOn? 
-    model.menuListIsOn = false: 
+    model.menuListIsOn = false:
     model.menuListIsOn = true;
 
     
