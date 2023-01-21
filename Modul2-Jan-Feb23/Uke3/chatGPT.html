@@ -8,19 +8,10 @@
     <title>Document</title>
 </head>
 <style>
-    .title {
-        text-align: center;
-        font-size: 2em;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: #0d47a1;
-    }
-
     .slider {
         position: relative;
         width: 100%;
         height: 300px;
-        background-color: #bbdefb;
     }
 
     .slider-image {
@@ -35,7 +26,7 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: 2em;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: #0d47a1;
         border: none;
         color: white;
         outline: none;
@@ -45,7 +36,7 @@
     }
 
     .slider-button:hover {
-        background-color: rgba(255, 255, 255, 0.049);
+        background-color: #01579b;
         cursor: pointer;
     }
 
@@ -55,52 +46,6 @@
 
     #next-button {
         right: 20px;
-    }
-
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    th,
-    td {
-        border: 1px solid #0d47a1;
-        padding: 8px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #0d47a1;
-        color: white;
-        font-weight: bold;
-    }
-
-    td {
-        color: #0d47a1;
-    }
-
-    .blog-feed {
-        height: 250px;
-        width: 70%;
-        margin: 0 auto;
-        background-color: #bbdefb;
-        padding: 20px;
-    }
-
-    .post {
-        margin-bottom: 20px;
-    }
-
-    h2 {
-        text-align: center;
-        color: #0d47a1;
-        margin-bottom: 20px;
-    }
-
-    h3 {
-        color: #0d47a1;
-        margin-bottom: 10px;
     }
 </style>
 
@@ -113,7 +58,9 @@
         <button id="prev-button" class="slider-button">&lt;</button>
         <button id="next-button" class="slider-button">&gt;</button>
 
+
     </div>
+
     <table>
         <tr>
             <th>Package</th>
