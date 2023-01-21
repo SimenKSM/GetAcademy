@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .slider {
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+
+    .slider-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+    <div class="slider">
+        <img src="img/picture1.jpg" class="slider-image" id="image1">
+        <img src="img/picture2.jpg" class="slider-image" id="image2">
+        <img src="img/picture3.jpg" class="slider-image" id="image3">
+
+    </div>
+    <button id="prev-button">Previous</button>
+    <button id="next-button">Next</button>
+    <script>
+        var images = document.querySelectorAll('.slider-image');
+        var current = 0;
+
+        function showCurrent() {
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none';
+            }
+            images[current].style.display = 'block';
+        }
+
+        var prevButton = document.getElementById('prev-button');
+        prevButton.onclick = function () {
+            current = (current + images.length - 1) % images.length;
+            showCurrent();
+        }
+
+        var nextButton = document.getElementById('next-button');
+        nextButton.onclick = function () {
+            current = (current + 1) % images.length;
+            showCurrent();
+        }
+
+        showCurrent();
+    </script>
+</body>
+
+</html>
