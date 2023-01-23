@@ -1,19 +1,33 @@
 const model = {
 
     app: {
-        currentPage: 'frontPage',
-        currentUser: 'admin',
+        currentPage: "frontPage",
+        currentUser: "admin",
     },
 
     inputs: {
-        fakeInput: ''
+
+        blogForm: '',
+
 
     },
 
     data: {
 
-        fakeData: '',
+        blogPosts: [
+            {
+                Id: 1,
+                blogPostsTitle: 'Tittel på blog oppdateringen',
+                blogPostText: 'Blogpost innhold',
 
-    },
+            }
+
+        ],
+        
+        blogPictures: [],
+
+
+
+    }
 
 }
