@@ -19,7 +19,7 @@ function mainView() {
     
     <div id="navbar">
     <hr/>
-    Social Media Links: 
+    
         <button onclick="showInstagramPage()"><img class="img" src="img/instagram.png"></button>
         <button onclick="showInstagramPage()"><img class="img" src="img/facebook.png"></button>
         <button onclick="showInstagramPage()"><img class="img" src="img/twitter.png"></button>
@@ -42,7 +42,7 @@ function blogWritePostView() {
     <button onclick="editorPageSelect()">Skriv oppdatering</button>
     <div id="navbar">
     <hr/>
-    Social Media Links: 
+    
         <button onclick="showInstagramPage()"><img class="img" src="img/instagram.png"></button>
         <button onclick="showInstagramPage()"><img class="img" src="img/facebook.png"></button>
         <button onclick="showInstagramPage()"><img class="img" src="img/twitter.png"></button>

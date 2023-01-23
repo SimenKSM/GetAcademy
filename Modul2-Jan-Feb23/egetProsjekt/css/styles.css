@@ -1,4 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
 .img {
     height: 20px;
     width: 20px;
 }
+#navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: rgb(9, 9, 9);
+    text-align: center;
+  }
+  
+  #navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  
+  .social-icon {
+    font-size: 20px;
+  }
