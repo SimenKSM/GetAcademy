@@ -27,7 +27,7 @@ function mainView() {
          <hr/>
     </div>
      `;
-    
+
     return HTML;
 }
 
@@ -51,7 +51,7 @@ function blogWritePostView() {
     </div>
     
     `;
-   
-     return HTML;
+
+    return HTML;
 
 }
