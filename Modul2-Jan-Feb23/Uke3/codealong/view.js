@@ -12,10 +12,13 @@ function mainView() {
         HTML += `<li>${model.data.users[index].userName}</li>`;
         
     }
-    
+    for (const element of model.data.users) {
+        HTML += `<li>${element}</li>`;
+     }
     
     
     
     return HTML;
 
 }
+

@@ -9,13 +9,15 @@ function viewSelector() {
 }
 
 function mainView() {
-    let HTML = ``;
+    let HTML = /*HTML*/ ``;
+    
     HTML = `
     Simen var her
     <button onclick="secondViewSelector()">Neste side</button> 
     <input onchange="model.inputs.name = this.value"/>
     <button onclick="addItemArray()">Legg til</button> 
     ${model.data.persons}
+    
     
     `;
 
@@ -25,10 +27,15 @@ function mainView() {
 function secondView() {
     let HTML = ``;
     
-    for (let index = 0; index < model.data.persons.length; index++) {
-        HTML += `<li>${model.data.persons[index]}</li>`;
+    // for (let index = 0; index < model.data.persons.length; index++) {
+    //     HTML += `<li>${model.data.persons[index]}</li>`;
         
+    // }
+   
+    for (const element of model.data.persons) {
+       HTML += `<li>${element}</li>`;
     }
+    
     
     
     return HTML;

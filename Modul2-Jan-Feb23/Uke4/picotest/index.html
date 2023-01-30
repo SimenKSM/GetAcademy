@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/pico.min.css" />
+    
+    <script src="JS/model.js"></script>
+    <script src="JS/frontPageView.js"></script>
+    <script src="JS/bookingPageView.js"></script>
+    <script src="JS/blogPageView.js"></script>
+    <script src="JS/frontPageController.js"></script>
+    <script src="JS/bookingPageController.js"></script>
+    <script src="JS/blogPageController.js"></script>
+    <script src="JS/common.js"></script>
+    <title>Ida's badstueutleie</title>
+
+</head>
+
+<body>
+    <div id="app"></div>
+    
+
+    <script>
+        updateView()
+        function updateView() {
+            let currentPage = model.app.currentPage
+            if (currentPage == 'frontPage') {
+                updateFrontPageView()
+            }
+            if (currentPage == "bookingPage") {
+                updateBookingPageView()
+            }
+            if(currentPage == "blogPage") {
+                updateBlogPageView()
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
