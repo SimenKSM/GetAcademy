@@ -18,7 +18,7 @@ function viewSelector(toUpdate) {
 function mainView() {
     let HTML = '';
 
-    HTML = `Simen er best
+    HTML = `Simen er best VVVVVVV
     <button onclick="modalEditorView()">editorModal</button>
     
     `;
