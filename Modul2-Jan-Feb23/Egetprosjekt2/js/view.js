@@ -54,6 +54,6 @@ function modalEditorView() {
         <button type="submit" onclick="newBlogPost()">Lag post</button>
         </div>
         `;
-    openModal()
+  
 
 }
