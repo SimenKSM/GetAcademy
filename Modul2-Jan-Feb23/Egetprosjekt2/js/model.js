@@ -1,6 +1,10 @@
 const model = {
     
     app: {
-        currentPage: 'frontPage'
-    }
+        currentPage: 'frontPage',
+        currentModal: ''
+    },
+    
+    modal: 'none',
 }
+
