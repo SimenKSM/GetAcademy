@@ -11,7 +11,7 @@ const model = {
 
     data: {
 
-        frontpageText: "Blabla Nettbutikk for salg av dukketøy",
+        frontpageText: "Blabla dette er en nettside for  Annonser med dukketøy",
         frontpageImages: ["img/bilde1", "img/bilde1,"],
 
         products: [
@@ -21,6 +21,7 @@ const model = {
                 productImg: "img/bildeAvVare.jpg",
                 productPrice: 100,
                 productQuantity: 0,
+                productInformation: "Dette er en sokk"
                 
             }
         ]
