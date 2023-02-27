@@ -21,7 +21,7 @@ const model = {
                 productImg: "img/bildeAvVare.jpg",
                 productPrice: 100,
                 productQuantity: 0,
-                productInformation: "Dette er en sokk"
+                productInformation: "Dette er en sokk test"
                 
             }
         ]
